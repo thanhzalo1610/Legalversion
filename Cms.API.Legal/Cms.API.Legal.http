@@ -1,0 +1,6 @@
+@Cms.API.Legal_HostAddress = http://localhost:5230
+
+GET {{Cms.API.Legal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

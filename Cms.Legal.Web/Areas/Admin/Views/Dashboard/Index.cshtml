@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<vc:dashboard view_name="Default" position="default" name="default"></vc:dashboard>
+
+@section css{
+    <link rel="stylesheet" href="/Themes/Admin/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+}
+@section scripts{
+    <script src="/Themes/Admin/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="/Themes/Admin/js/cmslegal.js"></script>
+}

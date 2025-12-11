@@ -1,0 +1,152 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<section class="banner-logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center align-content-center">
+                    <a href="/">
+                        <img src="~/templates/statics/images/logo/logo_200x200.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="register-main">
+    <div class="container">
+        <div class="register-container">
+            <div class="row g-0">
+                <!-- Left Side - Branding -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="register-branding">
+                        <div class="branding-content">
+                            <h2>Welcome back.</h2>
+                            <p>Log in to access our smart legal services</p>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <div class="feature-icon"><img src="/templates/statics/images/icon/suportai_60x60.png" /></div>
+                                    <span>24/7 AI Legal Advice</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><img src="/templates/statics/images/icon/analysisdocument_60x60.png" /></div>
+                                    <span>Automated contract analysis</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><img src="/templates/statics/images/icon/aiserach_60x60.png" /></div>
+                                    <span>Look up legal documents</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><img src="/templates/statics/images/icon/aianalysis_60x60.png" /></div>
+                                    <span>Predict the outcome of the case</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Login Form -->
+                <div class="col-lg-6">
+                    <div class="register-form-container">
+                        <div class="register-header">
+                            <h1>Register</h1>
+                            <p>Create a new account to get started</p>
+                        </div>
+                        <!-- Social Login Buttons -->
+                        <div class="social-register">
+                            <button class="btn-social btn-google" onclick="loginWithGoogle()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-facebook" onclick="loginWithFacebook()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-apple" onclick="loginWithApple()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-microsoft" onclick="loginWithMicrosoft()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="divider">
+                            <span>Sign In Using Email</span>
+                        </div>
+
+                        <form id="loginForm" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-group">
+                                <label asp-for="Input.Email" class="form-label">User Name Or Email</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                                    </svg>
+                                <input asp-for="Input.Email" class="form-input" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Password" class="form-label">Password</label>
+                                <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                                </svg>
+                                <input asp-for="Input.Password" class="form-input" autocomplete="current-password" aria-required="true" placeholder="password" />
+                                <button type="button" class="btn-toggle-password" onclick="togglePassword()">
+                                    <svg id="eyeIcon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg>
+                                </button>
+                                
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-options">
+                                <label asp-for="Input.RememberMe" class="form-label">
+                                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                                <a href="#forgot-password" class="forgot-link">Fortgot password?</a>
+                            </div>
+
+                            <button type="submit" class="btn-login">
+                                Sign In
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg>
+                            </button>
+                        </form>
+                        <!-- Register Link -->
+                        <div class="register-link">
+                            <p>No account yet? <a href="#register">Sign Up Now.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/templates/statics/js/login.js"></script>
+}

@@ -1,0 +1,259 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<section class="banner-logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center align-content-center">
+                    <a href="/">
+                        <img src="~/templates/statics/images/logo/logo_200x200.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="register-main">
+    <div class="container">
+        <div class="register-container">
+            <div class="row g-0">
+                <!-- Left Side - Branding -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="register-branding">
+                        <div class="branding-content">
+                            <h2>Join us!</h2>
+                            <p>Sign up to experience top smart legal services.</p>
+                            <div class="benefits-list">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">✓</div>
+                                    <div class="benefit-text">
+                                        <h4>14 days free</h4>
+                                        <p>Full featured experience.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">✓</div>
+                                    <div class="benefit-text">
+                                        <h4>Suport 24/7</h4>
+                                        <p>AI Legal System is always ready.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">✓</div>
+                                    <div class="benefit-text">
+                                        <h4>Absolute security.</h4>
+                                        <p>Information is securely encrypted</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Register Form -->
+                <div class="col-lg-6">
+                    <div class="register-form-container">
+                        <div class="register-header">
+                            <h1>Register</h1>
+                            <p>Create a new account to get started</p>
+                        </div>
+
+                        <!-- Social Register Buttons -->
+                        <div class="social-register">
+                            <button class="btn-social btn-google" onclick="registerWithGoogle()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-facebook" onclick="registerWithFacebook()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-apple" onclick="registerWithApple()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                                </svg>
+                            </button>
+
+                            <button class="btn-social btn-microsoft" onclick="registerWithMicrosoft()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="divider">
+                            <span>Or Sign up withemail</span>
+                        </div>
+
+                        <!-- Register Form -->
+                        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" data-ajax="true" data-ajax-method="post" data-ajax-success="registerSuccess" data-ajax-failure="registerFail">
+
+                            <input hidden asp-for="Input.FullAddress" class="form-input" value="" />
+                            <input hidden asp-for="Input.FullName" class="form-input" value=""/>
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="row">
+                                <div class="col-12 col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.FisrtName">FisrtName</label>
+                                            <input asp-for="Input.FisrtName" class="form-input" placeholder="Enter first name" />
+                                            <span asp-validation-for="Input.FisrtName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.LastName">LastName</label>
+                                            <input asp-for="Input.LastName" class="form-input" placeholder="Enter last name" />
+                                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.BirthDate">BirthDate</label>
+                                            <input asp-for="Input.BirthDate" class="form-input" />
+                                            <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.PhoneNumber">Phone Number</label>
+                                            <input asp-for="Input.PhoneNumber" class="form-input" placeholder="Enter phone number" />
+                                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.UserName">UserName</label>
+                                            <input asp-for="Input.UserName" class="form-input" placeholder="Enter user name" />
+                                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.Email">Email</label>
+                                            <input asp-for="Input.Email" class="form-input" placeholder="Enter email" />
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.Password">Password</label>
+                                            <input asp-for="Input.Password" class="form-input" placeholder="password" />
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                                            <input asp-for="Input.ConfirmPassword" class="form-input" placeholder="password" />
+                                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" id="find-lawyer">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.regions">Area</label>
+                                            <select asp-for="Input.regions" name="Input.regions" data-view="Input_country" class="form-input">
+                                                @await Component.InvokeAsync("SelectLayout",new{viewname="Default",data=""})
+                                            </select>
+                                            <span asp-validation-for="Input.regions" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.country">Country</label>
+                                            <select asp-for="Input.country" data-view="Input_state" class="form-input" disabled>
+                                                <option value="">Select Countries.</option>
+                                                </select>
+                                            <span asp-validation-for="Input.country" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.state">State/Province</label>
+                                            <select asp-for="Input.state" data-view="Input_city" class="form-input" disabled> <option value="">Select State.</option></select>
+                                            <span asp-validation-for="Input.state" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.city">City</label>
+                                            <select asp-for="Input.city" class="form-input" disabled>
+                                                <option value="">Select Cities.</option>
+                                                </select>
+                                            <span asp-validation-for="Input.city" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <label asp-for="Input.Address">Address</label>
+                                            <input asp-for="Input.Address" class="form-input" />
+                                            <span asp-validation-for="Input" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms" required>
+                                    <span>I agree to the <a href="#terms" class="link-gold">Terms of Service</a> and <a href="#privacy" class="link-gold">Privacy Policy</a></span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-register">
+                                Register
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/templates/statics/js/register.js"></script>
+}
+@section css {
+}

@@ -1,0 +1,153 @@
+﻿@model Cms.ModelsView.Legal.Models.MockTrialViewModels
+@{
+    ViewData["Title"] = "AI Mock Trial Simulator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section-logo-animation py-5">
+    <div class="container">
+        <div class="logo-animation-container">
+            <div class="animated-logo">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <a href="/">
+                            <img src="~/templates/statics/images/logo/moctrial1.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <h1 class="about-title mt-5">@ViewData["Title"]</h1>
+            <p class="about-subtitle">Pioneering in Legal AI Technology.</p>
+        </div>
+    </div>
+</section>
+<section class="trial-main">
+    <div class="container-fluid">
+        <div class="row g-4">
+            <!-- Left Sidebar - Trial Management -->
+            <div class="col-lg-3">
+                <div class="trial-sidebar">
+                    <h3 class="sidebar-title">Trial Management</h3>
+
+                    <!-- Create New Trial -->
+                    <button class="btn-action btn-create" onclick="showCreateTrialModal()">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                        Create New Trial
+                    </button>
+
+                    <!-- Trial List -->
+                    <div class="trial-list" id="trialList">
+                        <!-- Trials will be populated here -->
+                    </div>
+
+                    <!-- Trial Statistics -->
+                    <div class="trial-stats">
+                        <h4>Statistics</h4>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Trials:</span>
+                            <span class="stat-value" id="totalTrials">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Active:</span>
+                            <span class="stat-value" id="activeTrials">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Completed:</span>
+                            <span class="stat-value" id="completedTrials">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-lg-9">
+                <!-- Trial Workspace -->
+                <div class="trial-workspace" id="trialWorkspace">
+                    <div class="welcome-message">
+                        <svg width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                        </svg>
+                        <h2>Welcome to AI Mock Trial Simulator</h2>
+                        <p>Create a new trial or select an existing one to begin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Create Trial Modal -->
+<div class="modal fade" id="createTrialModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content trial-modal">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Mock Trial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="createTrialForm" asp-controller="Case" asp-action="UpsertMockTrial" data-ajax="true" data-ajax-begin="OnBegin" data-ajax-failure="onFailureFunction" data-ajax-complete="onCompleteFunction" data-ajax-method="POST" data-ajax-update="#targetDiv" data-ajax-mode="replace" data-ajax-success="onSuccessFunction">
+                    @Html.HiddenFor(m => m.code)
+                    @Html.HiddenFor(m => m.categoryName)
+                    <div class="mb-3">
+                        <label class="form-label">Case Name</label>
+                        @Html.LabelFor(m => m.title, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.title, new { @class = "form-control", placeholder = "e.g., Smith v. Johnson", required = "required", id = "caseName" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.categoryId, new { @class = "form-label" })
+                        @Html.DropDownList("categoryId",null, "Select Case Type...", new { @class = "form-select", required = "required" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.description, new { @class = "form-label" })
+                        @Html.TextAreaFor(m => m.description, new { @class = "form-control", placeholder = "Brief description of the case...", rows = "4", required = "required" })
+                    </div>
+                    <button type="submit" class="btn-submit">Create Trial</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link href="~/themes/admin/dist/libs/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+}
+@section scripts {
+    
+    <script src="~/themes/admin/dist/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+   <script src="~/templates/statics/js/mock-trial.js"></script> 
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+    <script>
+                 function showCreateTrialModal() {
+            const modal = new bootstrap.Modal(document.getElementById('createTrialModal'));
+            modal.show();
+        }
+        function OnBegin() {
+            // Show loading indicator
+            console.log("Creating trial...");
+        }
+        function onSuccessFunction(response) {
+            // Handle success response
+            console.log("Trial created successfully:", response);
+            // Refresh trial list
+            createTrial(response.data);
+            //loadTrialList();
+            // Close modal
+            $('#createTrialModal').modal('hide');
+        }
+        function onFailureFunction(xhr, status, error) {
+            // Handle failure response
+            console.error("Error creating trial:", error);
+            alert("Failed to create trial. Please try again.");
+        }
+        function onCompleteFunction() {
+            // Hide loading indicator
+            console.log("Create trial request completed.");
+        }
+        function changecategory(element,element_data){
+            $(element).change(function(e){
+                $(element_data).val($(this).find(":selected").text());
+            });
+        }
+        changecategory("#categoryId","#categoryName");
+    </script>
+}

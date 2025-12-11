@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legal AI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <vc:builder-layout view_name="Default" tag_name="css"></vc:builder-layout>
+   
+    @await RenderSectionAsync("css", required: false)
+</head>
+<body>
+    <vc:builder-layout view_name="SectionPage" tag_name="head"></vc:builder-layout>
+
+        <main>
+            @RenderBody()
+        </main>
+
+    <vc:builder-layout view_name="SectionPage" tag_name="footer"></vc:builder-layout>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <vc:builder-layout view_name="Default" tag_name="scripts"></vc:builder-layout>
+    @await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿@model string
+
+@if (Model != null && Model == "css")
+{
+    <link rel="stylesheet" href="~/templates/statics/css/styles.css">
+    <link href="~/templates/statics/css/responseble.css" rel="stylesheet" />
+}
+@if (Model != null && Model == "scripts")
+{
+    <script src="~/templates/statics/js/script.js"></script>
+}

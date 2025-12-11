@@ -1,0 +1,39 @@
+﻿@model List<Cms.DataNpg.Legal.EF.MenuDe>
+
+@if (Model != null && Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="col-12 col-sm-3">
+            <div class="card rounded-3 card-hover">
+
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="ms-4">
+                            <h4 class="card-title text-dark">@item.Title</h4>
+                        </div>
+                        <div class="btn-group mb-2">
+                            <button class="btn btn-light-danger text-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-menu"></i>
+                            </button>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="dropdownMenuButton">
+                                <li class="bg-warning">
+                                    <a href="/admin/manage-menu/modify-menu/@item.Code" class="dropdown-item"><i class="ti ti-edit"></i></a>
+                                </li>
+                                <li class="bg-danger">
+                                    <span class="dropdown-item" href="#"><i class="ti ti-trash-x"></i></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<div class="col-12 col-sm-1">
+    <div class="d-flex align-items-center">
+        <span class="flex-shrink-0"><i class="ti ti-plus text-info display-6"></i></span>
+    </div>
+</div>

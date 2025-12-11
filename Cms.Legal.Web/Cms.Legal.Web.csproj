@@ -1,0 +1,198 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-Cms.Legal.Web-162510f5-c97f-45df-b05c-66f573b86c93</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\configBridge.json" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\npm-shrinkwrap.json" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\AUTHORS.txt" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\LICENSE.txt" />
+    <Content Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\sizzle\LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreRateLimit" Version="5.0.0" />
+    <PackageReference Include="AspNetCoreRateLimit.Redis" Version="2.0.0" />
+    <PackageReference Include="bootstrap" Version="5.3.8" />
+    <PackageReference Include="Google-GenAI.SDK" Version="0.0.1" />
+    <PackageReference Include="Google.GenAI" Version="0.7.0" />
+    <PackageReference Include="Google_GenerativeAI" Version="3.4.1" />
+    <PackageReference Include="IronOcr" Version="2025.11.31" />
+    <PackageReference Include="jQuery" Version="3.7.1" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.14.1" />
+    <PackageReference Include="LLamaSharp" Version="0.25.0" />
+    <PackageReference Include="LLamaSharp.Backend.Cuda12" Version="0.25.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Npgsql" Version="8.0.8" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
+    <PackageReference Include="System.Net.Security" Version="4.3.2" />
+    <PackageReference Include="System.Threading.RateLimiting" Version="8.0.0" />
+    <PackageReference Include="UAParser" Version="3.1.47" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cms.DataNpg.Legal\Cms.DataNpg.Legal.csproj" />
+    <ProjectReference Include="..\Cms.Legal.Areas\Cms.Legal.Areas.csproj" />
+    <ProjectReference Include="..\Cms.Legal.ModelAI\Cms.Legal.ModelAI.csproj" />
+    <ProjectReference Include="..\Cms.ModelsView.Legal\Cms.ModelsView.Legal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\dist\js\npm.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\bs-commonjs-generator.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\bs-raw-files-generator.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\grunt\change-version.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\affix.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\alert.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\button.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\carousel.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\collapse.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\dropdown.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\modal.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\popover.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\scrollspy.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\tab.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\tooltip.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\bootstrap\js\transition.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\dist\jquery.slim.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\jquery\sizzle\dist\sizzle.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\ender.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\af.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ar-ma.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ar-sa.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ar-tn.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ar.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\az.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\be.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\bg.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\bn.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\bo.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\br.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\bs.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ca.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\cs.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\cv.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\cy.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\da.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\de-at.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\de.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\el.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\en-au.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\en-ca.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\en-gb.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\eo.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\es.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\et.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\eu.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fa.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fi.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fo.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fr-ca.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fr.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\fy.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\gl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\he.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\hi.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\hr.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\hu.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\hy-am.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\id.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\is.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\it.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ja.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\jv.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ka.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\km.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ko.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\lb.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\lt.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\lv.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\me.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\mk.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ml.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\mr.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ms-my.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ms.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\my.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\nb.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ne.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\nl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\nn.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\pl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\pt-br.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\pt.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ro.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ru.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\si.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sk.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sq.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sr-cyrl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sr.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\sv.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\ta.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\th.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\tl-ph.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\tr.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\tzl.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\tzm-latn.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\tzm.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\uk.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\uz.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\vi.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\zh-cn.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\locale\zh-tw.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\min\locales.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\min\moment-with-locales.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\min\moment.min.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\min\tests.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\moment.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\bootstrap-material-datetimepicker\node_modules\moment\package.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\kanban\node_modules\debug\debug.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\kanban\node_modules\debug\index.js" />
+    <None Include="wwwroot\Themes\Admin\dist\libs\kanban\node_modules\debug\lib\debug.js" />
+  </ItemGroup>
+	<ItemGroup>
+		<Content Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.25.0\runtimes\linux-x64\native\avx\**\*.*" LinkBase="runtimes\linux-x64\native\avx" CopyToOutputDirectory="PreserveNewest" />
+		<Content Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.25.0\runtimes\linux-x64\native\avx2\**\*.*" LinkBase="runtimes\linux-x64\native\avx2" CopyToOutputDirectory="PreserveNewest" />
+		<Content Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.25.0\runtimes\linux-x64\native\avx512\**\*.*" LinkBase="runtimes\linux-x64\native\avx512" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+</Project>

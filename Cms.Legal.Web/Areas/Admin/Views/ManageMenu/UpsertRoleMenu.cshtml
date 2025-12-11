@@ -1,0 +1,163 @@
+﻿@model Cms.ModelsView.Legal.Models.MenuRoleViewModels
+
+@{
+    ViewData["Title"] = "Provide Menu to User";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="card w-100">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="d-flex justify-content-start align-items-center gap-3">
+                    <a href="#">
+                        <span class="btn-outline-light-gray"><i class="ti ti-door-exit text-warning fs-5"></i></span>
+                    </a>
+                    <h4 class="title">@ViewData["Title"]</h4>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6"></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="UpsertRoleMenu" id="ajax-submit" data-ajax="true" data-ajax-begin="onBegin" data-ajax-success="onSuccess" data-ajax-failure="onFailed" data-ajax-complete="onComplete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(m => m.Code)
+            @Html.HiddenFor(m => m.Other)
+            @Html.HiddenFor(m => m.Display)
+            <div class="row">
+                <div class="col-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+
+                                @Html.DropDownList("UserId", null, "Select User.", new { @class = "form-control" })
+                                <label asp-for="UserId">User Use Menu</label>
+                                <span asp-validation-for="UserId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12 col-sm-4">
+                            <div class="form-floating mb-3">
+
+                                @Html.DropDownList("MenuCode", null, "Select Local Menu.", new { @class = "form-control", disabled = "disabled" })
+                                <label asp-for="MenuCode">Local Menu</label>
+                                <span asp-validation-for="MenuCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-floating mb-3">
+
+                                @Html.DropDownList("MenuDesCode", null, "Select Menu.", new { @class = "form-control", disabled = "disabled" })
+                                <label asp-for="MenuDesCode">Menu</label>
+                                <span asp-validation-for="MenuDesCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-floating mb-3">
+
+                                @Html.DropDownList("ParentId", null, "Select Main Menu.", new { @class = "form-control", disabled = "disabled" })
+                                <label asp-for="ParentId">Main Menu</label>
+                                <span asp-validation-for="ParentId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-3 d-flex justify-content-center flex-column">
+                        <div class="form-check form-check-inline">
+                        @Html.CheckBoxFor(m => m.IsDeleted, new { @class = "form-check-input warning" })
+                            <label asp-for="IsDeleted" class="form-check-label">Deleted <i class="ti ti-trash"></i></label>
+                            <span asp-validation-for="IsDeleted" class="text-danger"></span>
+                    </div>
+                        <div class="form-check form-check-inline">
+                            @Html.CheckBoxFor(m => m.IsView, new { @class = "form-check-input warning" })
+                            <label asp-for="IsView" class="form-check-label">View <i class="ti ti-eye"></i></label>
+                            <span asp-validation-for="IsView" class="text-danger"></span>
+                        </div>
+                        <div class="form-check form-check-inline">
+
+                        @Html.CheckBoxFor(m => m.IsCreate, new { @class = "form-check-input warning" })
+                            <label asp-for="IsCreate" class="form-check-label">Create <i class="ti ti-pencil-plus"></i></label>
+                            <span asp-validation-for="IsCreate" class="text-danger"></span>
+                        </div>
+                        <div class="form-check form-check-inline">
+
+                        @Html.CheckBoxFor(m => m.IsEdit, new { @class = "form-check-input warning" })
+                            <label asp-for="IsEdit" class="form-check-label">Edit <i class="ti ti-edit"></i></label>
+                            <span asp-validation-for="IsEdit" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section css {
+    <link rel="stylesheet" href="~/Themes/Admin/dist/libs/sweetalert2/dist/sweetalert2.min.css">
+}
+@section Scripts {
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Themes/Admin/dist/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="~/Themes/Admin/js/app.ajaxform.js"></script>
+    <script>
+                function onBegin(form) {
+            $('#loadding').removeClass("d-none");
+        }
+
+        function onSuccess(response, form) {
+            Swal.fire({
+                icon: response.status ?? "success",
+                title: response.title ?? "Success",
+                text: response.message ?? "Done"
+            });
+        }
+
+        function onFailed(xhr, form) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: xhr.responseText ?? "Request failed"
+            });
+        }
+
+        function onComplete(form) {
+            $('#loadding').addClass("d-none");
+        }
+    $('#UserId').change(function(e){
+        var v= $(this).find(":selected").val();
+        if(v===null||v===undefined){
+            return;
+        }
+        else{
+            $('#MenuCode').prop("disabled",false);
+        }
+    });
+    $('#MenuCode').change(function(e){
+                                var v=$(this).find(":selected").val();
+         if(v===null||v===undefined){
+            return;
+        }
+        else{
+                $('#MenuDesCode').prop("disabled",false);
+                $("#MenuDesCode").load("/admin/manage-menu/component-field?type=MenuDes&&id=&&menucode="+v);
+        }
+                            });
+                                     $('#MenuDesCode').change(function(e){
+                                    var v=$(this).find(":selected").val();
+                                            var v2=$('#MenuCode').find(":selected").val();
+             if(v===null||v===undefined){
+                return;
+            }
+            else{
+                    $('#ParentId').prop("disabled",false);
+                        $("#ParentId").load(`/admin/manage-menu/component-field?type=ParentMenu&&id=${v2}&&menucode=${v}`);
+            }
+                                });
+                     
+    </script>
+}

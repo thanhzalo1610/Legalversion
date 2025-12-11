@@ -1,0 +1,22 @@
+﻿@model string
+
+@if (Model == "css")
+{
+    <link rel="shortcut icon" type="image/png" href="~/Themes/Admin/dist/images/logos/favicon.ico" />
+    <link rel="stylesheet" href="~/Themes/Admin/dist/libs/prismjs/themes/prism-okaidia.min.css">
+    <link id="themeColors" rel="stylesheet" href="~/Themes/Admin/dist/css/style.min.css" />
+
+}
+
+@if (Model == "scripts")
+{
+    <script src="~/Themes/Admin/dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/Themes/Admin/dist/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="~/Themes/Admin/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Themes/Admin/dist/js/app.min.js"></script>
+    <script src="~/Themes/Admin/dist/js/app.init.js"></script>
+    <script src="~/Themes/Admin/dist/js/app-style-switcher.js"></script>
+    <script src="~/Themes/Admin/dist/js/sidebarmenu.js"></script>
+    <script src="~/Themes/Admin/dist/js/custom.js"></script>
+    <script src="~/Themes/Admin/dist/libs/prismjs/prism.js"></script>
+}

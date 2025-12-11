@@ -1,0 +1,27 @@
+﻿@model List<Cms.ModelsView.Legal.Models.AccountViewModels>
+
+@if (Model != null && Model.Count() > 0)
+{
+    foreach(var item in Model)
+    {
+        int temp = 1;
+        <tr>
+            <td>@temp</td>
+            <td>@item.full_name</td>
+            <td>@item.email</td>
+            <td>@item.role_name</td>
+            <td>
+                <a href="/admin/manage-account/profile/id" class="btn mb-1 btn-light-secondary btn-circle btn-sm d-inline-flex align-items-center justify-content-center">
+                    <i class="fs-5 ti ti-eye-check text-secondary"></i>
+                </a>
+                <a class="btn mb-1 btn-light-warning btn-circle btn-sm d-inline-flex align-items-center justify-content-center">
+                    <i class="fs-5 ti ti-edit text-warning"></i>
+                </a>
+                <a class="btn mb-1 btn-light-danger btn-circle btn-sm d-inline-flex align-items-center justify-content-center">
+                    <i class="fs-5 ti ti-trash text-danger"></i>
+                </a>
+            </td>
+        </tr>
+        temp++;
+    }
+}

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "List Account";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <!-- ---------------------
+                    start Column rendering
+                ---------------- -->
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-2">
+                    <h5 class="mb-0">@ViewData["title"]</h5>
+                </div>
+                <div class="table-responsive">
+                    <table id="complex_head_col"
+                           class="table border table-striped table-bordered display text-nowrap"
+                           style="width: 100%">
+                        <thead>
+                            <!-- start row -->
+                            <tr>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <vc:list-account></vc:list-account>
+                        </tbody>
+                        <tfoot>
+                            <!-- start row -->
+                            <tr>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link rel="stylesheet" href="/Themes/Admin/dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+}
+@section scripts{
+    <script src="/Themes/Admin/dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/Themes/Admin/js/cmslegal.js"></script>
+}

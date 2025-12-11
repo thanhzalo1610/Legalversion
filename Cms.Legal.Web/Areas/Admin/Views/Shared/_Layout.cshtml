@@ -1,0 +1,82 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Mordenize" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="Mordenize" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewData["Title"] - Legal AI</title>
+    <vc:builder position="css"></vc:builder>
+    @await RenderSectionAsync("css", required: false)
+</head>
+<body>
+    <div class="preloader">
+        <img src="/Themes/Admin/dist/images/logos/favicon.ico" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="/Themes/Admin/dist/images/logos/favicon.ico" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+
+         @await Component.InvokeAsync("Sidebar",new{view_name="Default"})
+         <vc:sidebar view_name="Default"></vc:sidebar>
+        <div class="body-wrapper">
+        
+            <vc:header view_name="Default"></vc:header>
+
+        <div class="container-fluid note-has-grid mw-100">
+                @if (ViewContext.RouteData.Values["controller"].ToString().ToLower() != "dashboard")
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="progress mt-4 d-none" id="loadding">
+                                <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+                                     role="progressbar"
+                                     aria-valuenow="12"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100"
+                                     style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+                        <div class="card-body px-4 py-3">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <h4 class="fw-semibold mb-8">@ViewData["Title"]</h4>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a class="text-muted " href="/">Dashboard</a></li>
+                                            <li class="breadcrumb-item" aria-current="page">@ViewData["Title"]</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="col-3">
+                                    <div class="text-center mb-n5">
+                                        <img src="/Themes/Admin/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @RenderBody()
+    </div>
+    </div>
+    <div class="dark-transparent sidebartoggler"></div>
+    <div class="dark-transparent sidebartoggler"></div>
+    </div>
+    <vc:builder position="scripts"></vc:builder>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

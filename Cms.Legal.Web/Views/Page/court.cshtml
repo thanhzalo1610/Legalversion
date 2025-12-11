@@ -1,0 +1,563 @@
+﻿
+@{
+    ViewData["Title"] = "court";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="stage-indicator">
+    <div class="stage-bar">
+        <div class="stage-item active" data-stage="1">
+            <div class="stage-number">1</div>
+            <span class="stage-label">Session Start</span>
+        </div>
+        <div class="stage-connector"></div>
+        <div class="stage-item" data-stage="2">
+            <div class="stage-number">2</div>
+            <span class="stage-label">Presentation</span>
+        </div>
+        <div class="stage-connector"></div>
+        <div class="stage-item" data-stage="3">
+            <div class="stage-number">3</div>
+            <span class="stage-label">Cross-Examination</span>
+        </div>
+        <div class="stage-connector"></div>
+        <div class="stage-item" data-stage="4">
+            <div class="stage-number">4</div>
+            <span class="stage-label">Deliberation</span>
+        </div>
+        <div class="stage-connector"></div>
+        <div class="stage-item" data-stage="5">
+            <div class="stage-number">5</div>
+            <span class="stage-label">Verdict</span>
+        </div>
+    </div>
+    <div class="stage-controls">
+        <button class="btn-stage" id="prevStage" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Previous Stage
+        </button>
+        <button class="btn-stage btn-primary" id="nextStage">
+            Next Stage
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<div class="courtroom-tabs">
+    <button class="tab-btn active" data-tab="participants">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+        Participants
+    </button>
+    <button class="tab-btn" data-tab="documents">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+        </svg>
+        Documents
+    </button>
+    <button class="tab-btn" data-tab="analysis">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+        </svg>
+        Case Analysis
+    </button>
+    <button class="tab-btn" data-tab="verdict">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+        </svg>
+        Verdict
+    </button>
+</div>
+
+<div class="courtroom-content">
+    <div class="tab-panel active" id="participants-panel">
+        <div class="panel-header">
+            <div>
+                <h2>Participants Management</h2>
+                <p>Manage participants in the virtual courtroom session</p>
+            </div>
+            <button class="btn-gold" id="addParticipantBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                Add Participant
+            </button>
+        </div>
+
+        <div class="participants-table-wrapper">
+            <table class="participants-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="participantsTableBody">
+                    <tr>
+                        <td>Hon. Robert Williams</td>
+                        <td><span class="role-badge judge">Judge</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn edit" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg></button>
+                            <button class="action-btn lock" title="Lock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></button>
+                            <button class="action-btn delete" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sarah Mitchell</td>
+                        <td><span class="role-badge lawyer">Plaintiff Attorney</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn edit" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg></button>
+                            <button class="action-btn lock" title="Lock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></button>
+                            <button class="action-btn delete" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Michael Chen</td>
+                        <td><span class="role-badge lawyer">Defense Attorney</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn edit" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg></button>
+                            <button class="action-btn lock" title="Lock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></button>
+                            <button class="action-btn delete" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>James Anderson</td>
+                        <td><span class="role-badge defendant">Defendant</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn edit" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg></button>
+                            <button class="action-btn lock" title="Lock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></button>
+                            <button class="action-btn delete" title="Delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tab-panel" id="documents-panel">
+        <div class="documents-tabs">
+            <button class="doc-tab-btn active" data-doctab="files">File Upload</button>
+            <button class="doc-tab-btn" data-doctab="notes">Voice & Text Notes</button>
+        </div>
+
+        <div class="doc-tab-content active" id="files-content">
+            <div class="upload-zone" id="documentUploadZone">
+                <div class="upload-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                </div>
+                <h3>Upload Case Documents</h3>
+                <p>Drag and drop files here or <span class="gold">browse</span></p>
+                <span class="upload-hint">Supports PDF, DOC, DOCX, JPG, PNG (Max 25MB per file)</span>
+                <input type="file" id="documentFileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+            </div>
+
+            <div class="uploaded-documents" id="uploadedDocuments">
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                    </div>
+                    <div class="doc-info">
+                        <span class="doc-name">Plaintiff_Complaint_2025.pdf</span>
+                        <span class="doc-meta">2.4 MB • Uploaded Nov 30, 2025</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="doc-action-btn view" title="View">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                        </button>
+                        <button class="doc-action-btn delete" title="Delete">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                    </div>
+                    <div class="doc-info">
+                        <span class="doc-name">Evidence_Exhibit_A.pdf</span>
+                        <span class="doc-meta">1.8 MB • Uploaded Nov 30, 2025</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="doc-action-btn view" title="View">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                        </button>
+                        <button class="doc-action-btn delete" title="Delete">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-tab-content" id="notes-content">
+            <div class="voice-recorder">
+                <div class="recorder-visual">
+                    <div class="recorder-waves">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <button class="record-btn" id="recordBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                    <span>Start Recording</span>
+                </button>
+                <p class="recorder-hint">Click to start voice recording. AI will transcribe automatically.</p>
+            </div>
+
+            <div class="notes-section">
+                <div class="notes-header">
+                    <h3>Session Notes</h3>
+                    <button class="btn-outline btn-sm" id="addNoteBtn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Add Note
+                    </button>
+                </div>
+                <div class="notes-list" id="notesList">
+                    <div class="note-item">
+                        <div class="note-time">10:32 AM</div>
+                        <div class="note-content">
+                            <p>Plaintiff attorney presented opening statement. Key arguments focus on breach of fiduciary duty and failure to disclose material information.</p>
+                            <div class="note-meta">
+                                <span class="note-source voice">Voice Transcription</span>
+                                <button class="note-edit">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note-item">
+                        <div class="note-time">10:45 AM</div>
+                        <div class="note-content">
+                            <p>Defense counsel objects to admission of Exhibit B on grounds of hearsay. Judge reserves ruling pending further foundation.</p>
+                            <div class="note-meta">
+                                <span class="note-source manual">Manual Entry</span>
+                                <button class="note-edit">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-panel" id="analysis-panel">
+        <div class="panel-header">
+            <div>
+                <h2>AI Case Analysis</h2>
+                <p>Comprehensive analysis of uploaded case documents using legal AI</p>
+            </div>
+            <button class="btn-gold" id="runAnalysisBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="10 8 16 12 10 16 10 8" />
+                </svg>
+                Run AI Analysis
+            </button>
+        </div>
+
+        <div class="analysis-content">
+            <div class="analysis-section">
+                <div class="section-header">
+                    <h3>I. Case Summary</h3>
+                    <span class="ai-badge">AI Generated</span>
+                </div>
+                <div class="section-body">
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <label>Background</label>
+                            <p>Civil litigation concerning alleged securities fraud and breach of fiduciary duty arising from corporate merger transaction completed on March 15, 2025.</p>
+                        </div>
+                        <div class="summary-item">
+                            <label>Parties</label>
+                            <p>
+                                <strong>Plaintiff:</strong> Anderson Investment Group, LLC<br>
+                                <strong>Defendant:</strong> TechCorp Industries, Inc. and James Anderson (CEO)
+                            </p>
+                        </div>
+                        <div class="summary-item">
+                            <label>Charges/Claims</label>
+                            <p>
+                                1. Securities fraud under Section 10(b) of the Securities Exchange Act<br>
+                                2. Breach of fiduciary duty<br>
+                                3. Negligent misrepresentation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <div class="section-header">
+                    <h3>II. Evidence</h3>
+                    <span class="ai-badge">AI Categorized</span>
+                </div>
+                <div class="section-body">
+                    <div class="evidence-categories">
+                        <div class="evidence-category">
+                            <h4>Documents</h4>
+                            <ul>
+                                <li>Merger Agreement (Exhibit A)</li>
+                                <li>Financial Statements Q1-Q4 2024</li>
+                                <li>Board Meeting Minutes - Feb 2025</li>
+                            </ul>
+                        </div>
+                        <div class="evidence-category">
+                            <h4>Exhibits</h4>
+                            <ul>
+                                <li>Email correspondence between executives</li>
+                                <li>Due diligence reports</li>
+                                <li>Valuation analysis documents</li>
+                            </ul>
+                        </div>
+                        <div class="evidence-category">
+                            <h4>Witness Statements</h4>
+                            <ul>
+                                <li>Deposition of CFO Margaret Chen</li>
+                                <li>Expert witness report - Dr. Robert Smith</li>
+                                <li>Investor testimony transcripts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <div class="section-header">
+                    <h3>III. Legal Arguments</h3>
+                    <span class="ai-badge">AI Analysis</span>
+                </div>
+                <div class="section-body">
+                    <div class="arguments-grid">
+                        <div class="argument-block plaintiff">
+                            <h4>Plaintiff Arguments</h4>
+                            <ul>
+                                <li>Defendant failed to disclose material adverse information prior to merger</li>
+                                <li>Financial projections were knowingly inflated</li>
+                                <li>Investors relied on false statements to their detriment</li>
+                                <li>Damages calculated at $4.2M based on stock price decline</li>
+                            </ul>
+                        </div>
+                        <div class="argument-block defense">
+                            <h4>Defense Arguments</h4>
+                            <ul>
+                                <li>All material information was disclosed in SEC filings</li>
+                                <li>Projections were made in good faith based on available data</li>
+                                <li>Market conditions, not misrepresentation, caused losses</li>
+                                <li>Plaintiff failed to establish scienter requirement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <div class="section-header">
+                    <h3>IV. Observations & Notes</h3>
+                    <span class="ai-badge warning">AI Flags</span>
+                </div>
+                <div class="section-body">
+                    <div class="observations-list">
+                        <div class="observation-item key">
+                            <div class="obs-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                            </div>
+                            <div class="obs-content">
+                                <strong>Key Point:</strong> Email dated Feb 10, 2025 shows internal discussion of "material concerns" not reflected in public disclosures.
+                            </div>
+                        </div>
+                        <div class="observation-item warning">
+                            <div class="obs-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+                            </div>
+                            <div class="obs-content">
+                                <strong>Inconsistency:</strong> CFO testimony contradicts documented board meeting minutes regarding timeline of knowledge.
+                            </div>
+                        </div>
+                        <div class="observation-item risk">
+                            <div class="obs-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                            </div>
+                            <div class="obs-content">
+                                <strong>Missing Evidence:</strong> Expert valuation report referenced in pleadings not yet submitted to the record.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-panel" id="verdict-panel">
+        <div class="verdict-container">
+            <div class="verdict-header">
+                <div class="verdict-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                </div>
+                <h2>Court Verdict</h2>
+                <p>Case #2025-001 • Anderson Investment Group v. TechCorp Industries</p>
+            </div>
+
+            <div class="verdict-result">
+                <div class="verdict-badge pending">
+                    <span>PENDING</span>
+                </div>
+                <p class="verdict-status">Verdict will be rendered upon completion of deliberation stage</p>
+            </div>
+
+            <div class="verdict-sections">
+                <div class="verdict-section">
+                    <div class="verdict-section-header" data-expand="summary">
+                        <h3>Verdict Summary</h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+                    </div>
+                    <div class="verdict-section-body">
+                        <p class="placeholder-text">Summary will be generated after deliberation is complete.</p>
+                    </div>
+                </div>
+
+                <div class="verdict-section">
+                    <div class="verdict-section-header" data-expand="remarks">
+                        <h3>Judge's Remarks</h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+                    </div>
+                    <div class="verdict-section-body">
+                        <p class="placeholder-text">Judicial remarks will be recorded during verdict announcement.</p>
+                    </div>
+                </div>
+
+                <div class="verdict-section">
+                    <div class="verdict-section-header" data-expand="ai-notes">
+                        <h3>AI Notes & Recommendations</h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+                    </div>
+                    <div class="verdict-section-body">
+                        <div class="ai-recommendations">
+                            <div class="recommendation-item">
+                                <span class="rec-label">Case Strength Assessment</span>
+                                <div class="strength-meter">
+                                    <div class="strength-bar" style="width: 65%"></div>
+                                </div>
+                                <span class="strength-value">Moderate (65%)</span>
+                            </div>
+                            <div class="recommendation-item">
+                                <span class="rec-label">Recommended Actions</span>
+                                <ul>
+                                    <li>Request additional discovery on email communications</li>
+                                    <li>Depose additional witnesses from the finance department</li>
+                                    <li>Consider settlement negotiations given evidentiary gaps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="verdict-export">
+                <h3>Export Report</h3>
+                <div class="export-buttons">
+                    <button class="btn-outline" id="exportPDF">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        Export as PDF
+                    </button>
+                    <button class="btn-outline" id="exportWord">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        Export as Word
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ai-assistant">
+    <div class="ai-toggle" id="aiToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4" />
+            <path d="M12 8h.01" />
+        </svg>
+    </div>
+    <div class="ai-panel" id="aiPanel">
+        <div class="ai-panel-header">
+            <div class="ai-avatar">
+                <span>&#9878;</span>
+            </div>
+            <div>
+                <h4>LexAI Assistant</h4>
+                <span class="ai-status">Ready to assist</span>
+            </div>
+            <button class="ai-close" id="aiClose">&times;</button>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-message bot">
+                <p>Welcome to the virtual courtroom. I'm your AI legal assistant. I can help you with:</p>
+                <ul>
+                    <li>Suggesting cross-examination questions</li>
+                    <li>Summarizing testimony and arguments</li>
+                    <li>Identifying inconsistencies in evidence</li>
+                    <li>Guiding procedural workflow</li>
+                </ul>
+                <p>How may I assist you today?</p>
+            </div>
+        </div>
+        <div class="ai-input">
+            <input type="text" placeholder="Ask AI assistant..." id="aiInput">
+            <button class="ai-send" id="aiSend">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+        @section css{
+    <link href="~/themes/defaults/css/courtroom.css" rel="stylesheet" />
+        }

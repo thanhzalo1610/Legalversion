@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewData["Title"] = "Over View Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container">
+    <!-- Section 2: Results Overview -->
+    <div class="overview-content">
+            <!-- Overview Title -->
+            <div class="section-header">
+                <h2>Overview of results</h2>
+            </div>
+
+            <!-- Chart and Summary -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-5">
+                    <div class="chart-container">
+                        <canvas id="resultChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="results-summary">
+                        <div class="result-item plaintiff">
+                            <div class="result-icon">▶</div>
+                            <div class="result-content">
+                                <h3>Plaintiff wins: 68%</h3>
+                                <p>Has an advantage in evidence and legal precedents</p>
+                            </div>
+                        </div>
+                        <div class="result-item reconcile">
+                            <div class="result-icon">▶</div>
+                            <div class="result-content">
+                                <h3>Reconcile: 18%</h3>
+                                <p>Both parties show goodwill; evidence is relatively balanced</p>
+                            </div>
+                        </div>
+                        <div class="result-item defendant">
+                            <div class="result-icon">▶</div>
+                            <div class="result-content">
+                                <h3>Defendant Win: 14%</h3>
+                                <p>Dependent on rebuttal and additional evidence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Tables -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="analysis-table">
+                        <h3 class="table-title">Analyze key factors</h3>
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Impact level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Legal precedent / similar cases</td>
+                                    <td><span class="badge-strong">Strong</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Weak or unclear terms / facts</td>
+                                    <td><span class="badge-medium">Medium</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Judge's or authority's tendency</td>
+                                    <td><span class="badge-weak">Weak</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="analysis-table">
+                        <h3 class="table-title">Evidence and Witnesses</h3>
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Type of evidence</th>
+                                    <th>Impact level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Documentary / contract / record</td>
+                                    <td><span class="badge-strong">Strong</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Witness / expert</td>
+                                    <td><span class="badge-medium">Medium</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Electronic / digital evidence</td>
+                                    <td><span class="badge-weak">Weak</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proposals -->
+            <div class="proposals-section mb-4">
+                <h3 class="section-title">Propose:</h3>
+                <ul class="proposals-list">
+                    <li><strong>If you are the Plaintiff/Applicant →</strong> Strengthen your main evidence and clarify disputed points.</li>
+                    <li><strong>If you are the Defendant/Respondent →</strong> Consider early resolution if probability < 40%.</li>
+                    <li><strong>If applicable, escalate to higher jurisdiction or appeal.</strong></li>
+                </ul>
+            </div>
+
+            <!-- Damage Forecasting -->
+            <div class="damage-section mb-4">
+                <h3 class="section-title">Damage forecasting and compensation</h3>
+                <ul class="damage-list">
+                    <li><strong>Economic or compensatory:</strong> XX%</li>
+                    <li><strong>Non-economic (emotional, moral, social):</strong> XX%</li>
+                    <li><strong>Punitive / penalty (if applicable):</strong> XX%</li>
+                </ul>
+            </div>
+
+            <!-- Legal Analysis Factors Table -->
+            <div class="legal-factors-section mb-4">
+                <h3 class="section-title">LEGAL ANALYSIS FACTORS TABLE</h3>
+                <div class="table-responsive">
+                    <table class="factors-table">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Statute / Rule</th>
+                                <th>Description & Related Details</th>
+                                <th>Level of Influence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Main legal violation</td>
+                                <td>[dynamic: per case type]</td>
+                                <td>e.g., breach, offense, violation, (in)eligibility</td>
+                                <td><span class="badge-strong">Strong</span></td>
+                            </tr>
+                            <tr>
+                                <td>Related procedural issue</td>
+                                <td>[rule reference]</td>
+                                <td>e.g., due process, contract validity</td>
+                                <td><span class="badge-medium">Medium</span></td>
+                            </tr>
+                            <tr>
+                                <td>Secondary impact</td>
+                                <td>[rule reference]</td>
+                                <td>e.g., social or financial impact</td>
+                                <td><span class="badge-weak">Weak</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="cases-list-section">
+                        <h3 class="section-title">List of cases (sample)</h3>
+                        <table class="cases-table">
+                            <thead>
+                                <tr>
+                                    <th>The case</th>
+                                    <th>Judge</th>
+                                    <th>Day</th>
+                                    <th>Match</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-001 — Case A</td>
+                                    <td>Judge A</td>
+                                    <td>2025-07-8-12</td>
+                                    <td><span class="match-high">78%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2025-001 — Case B</td>
+                                    <td>Judge B</td>
+                                    <td>2025-07-23</td>
+                                    <td><span class="match-medium">61%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2025-001 — Case C</td>
+                                    <td>Judge B</td>
+                                    <td>2025-07-23</td>
+                                    <td><span class="match-medium">61%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2025-001 — Case D</td>
+                                    <td>Judge B</td>
+                                    <td>2025-07-23</td>
+                                    <td><span class="match-medium">61%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="prediction-section">
+                        <h3 class="section-title">Sample prediction table</h3>
+                        <div class="prediction-card">
+                            <div class="prediction-header">
+                                <p>Case: 2025-001 — Case A</p>
+                                <p><strong>Prediction: Guilty</strong></p>
+                            </div>
+                            <div class="prediction-match">
+                                <h4>Match</h4>
+                                <div class="match-percentage">78%</div>
+                            </div>
+                            <div class="prediction-factors">
+                                <h4>Main factors (feature importance)</h4>
+                                <ul>
+                                    <li>Criminal record: high</li>
+                                    <li>Witness evidence: medium impact</li>
+                                    <li>Witness testimony: low</li>
+                                </ul>
+                            </div>
+                            <div class="prediction-actions">
+                                <button class="btn-case-details">Case details</button>
+                                <button class="btn-compare">Compare with the case</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+                                    @section css{
+    <link href="~/templates/statics/css/overview.css" rel="stylesheet" />
+                                    }
+@section scripts{
+    <script src="~/templates/statics/js/overview.js"></script>
+
+                                    }

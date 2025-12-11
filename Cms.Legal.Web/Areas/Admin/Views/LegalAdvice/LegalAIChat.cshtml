@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "LegalAIChat";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        @await Component.InvokeAsync("ChatAI",new{message=""})
+    </div>
+</div>

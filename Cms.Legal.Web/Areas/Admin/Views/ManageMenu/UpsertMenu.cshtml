@@ -1,0 +1,78 @@
+﻿@model Cms.DataNpg.Legal.EF.Menu
+
+@{
+    ViewData["Title"] = "Create Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-action="UpsertMenu" id="ajax-submit" data-ajax="true" data-ajax-begin="onBegin" data-ajax-success="onSuccess" data-ajax-failure="onFailed" data-ajax-complete="onComplete">
+                    @Html.HiddenFor(m => m.Code)
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input asp-for="Title" class="form-control" />
+                                <label asp-for="Title" class="control-label"></label>
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-md-flex align-items-center mt-3">
+                                <div class="ms-auto mt-3 mt-md-0">
+                                    <button type="submit" class="btn btn-info font-medium rounded-pill px-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ti ti-send me-2 fs-4"></i>
+                                            Submit
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+
+    <link rel="stylesheet" href="~/Themes/Admin/dist/libs/sweetalert2/dist/sweetalert2.min.css">
+}
+@section Scripts {
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Themes/Admin/dist/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+  
+    <script>
+        function onBegin(form) {
+            console.log("Begin submit");
+        }
+
+        function onSuccess(response, form) {
+            Swal.fire({
+                icon: response.status ?? "success",
+                title: response.title ?? "Success",
+                text: response.message ?? "Done"
+            });
+        }
+
+        function onFailed(xhr, form) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: xhr.responseText ?? "Request failed"
+            });
+        }
+
+        function onComplete(form) {
+            console.log("Complete request");
+        }
+    </script>
+}

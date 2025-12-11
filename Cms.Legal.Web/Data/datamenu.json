@@ -1,0 +1,67 @@
+[
+  {
+    "title": "DashBoard",
+    "slug": "admin",
+    "url": "/admin",
+    "type_data": "icon",
+    "value_type": "<i fa fa-home></i>",
+    "child": []
+  },
+  {
+    "title": "Legal AI",
+    "slug": "chat-lawyer-ai",
+    "url": "/admin/legal-advice",
+    "type_data": "icon",
+    "value_type": "<i fa fa-chat></i>",
+    "child": [
+      {
+        "title": "Chat Lawyer AI",
+        "slug": "legalai-chat",
+        "url": "/legalai-chat",
+        "type_data": "icon",
+        "value_type": "<i fa fa-chat></i>",
+        "child": []
+      },
+      {
+        "title": "Mock Trial",
+        "slug": "mock-trial",
+        "url": "/mock-trial",
+        "type_data": "icon",
+        "value_type": "<i fa fa-home></i>",
+        "child": []
+      },
+      {
+        "title": "Legal Advice",
+        "slug": "legal-advice",
+        "url": "/legal-advice",
+        "type_data": "icon",
+        "value_type": "<i fa fa-home></i>",
+        "child": []
+      },
+      {
+        "title": "Find A Lawyer",
+        "slug": "find-lawyer",
+        "url": "/find-lawyer",
+        "type_data": "icon",
+        "value_type": "<i fa fa-home></i>",
+        "child": []
+      }
+    ]
+  },
+  {
+    "title": "Manage Account",
+    "slug": "find-lawyer",
+    "url": "/admin/manage-account",
+    "type_data": "icon",
+    "value_type": "<i fa fa-home></i>",
+    "child": []
+  },
+  {
+    "title": "Manage Menu",
+    "slug": "manage-menu",
+    "url": "/admin/manage-menu",
+    "type_data": "icon",
+    "value_type": "<i fa fa-home></i>",
+    "child": []
+  }
+]

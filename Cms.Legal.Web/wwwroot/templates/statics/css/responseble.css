@@ -1,0 +1,303 @@
+﻿@media(min-width: 768px) and (max-width: 1366px) {
+    .image-connect {
+        left: 45.4%;
+    }
+    .category-card {
+        padding: 40px 15px;
+    }
+
+    .gold-text {
+        font-size: 30px;
+    }
+
+    .footer-logo {
+        font-size: 20px;
+    }
+
+    .footer-brand p {
+        text-align: justify;
+    }
+    .section-logo-animation {
+    padding: 0 0 !important;
+
+}
+    .section-vision-mission {
+        padding: 0 0 !important;
+    }
+    .section-logo-animation {
+    min-height: fit-content;
+            }
+    .about-title{
+        font-size:45px;
+    }
+    .contact-main {
+       min-height: fit-content;
+    }
+    .social-register, .social-login {
+        display: flex;
+        flex-direction: row !important;
+        gap: 10px;
+        margin-bottom: 25px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    button.btn-social{
+        padding:10px 10px;
+    }
+    button.btn-social span{
+        display:none;
+    }
+    .branding-content h2 {
+        font-size: 1.9rem;
+    }
+    .login-header h1 {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 900;
+        color: var(--gold);
+    }
+
+    .login-header p {
+        font-size: 15px;
+        text-align: center;
+    }
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding:0;
+        border-radius: 15px;
+        flex-wrap:nowrap;
+    }
+    .section-title {
+        font-size: 20px
+    }
+    }
+
+
+
+/*==============MOBILE======================*/
+        @media screen and (max-width: 768px) {
+            .powers-grid {
+                grid-template-columns:1fr;
+            }
+            .tech-item {
+                padding: 5px 5px;
+            }
+            .power-item {
+                background: rgba(212, 175, 55, 0.05);
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid rgba(212, 175, 55, 0.2);
+                text-align: left;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+            .image-connect {
+                left: 0;
+            }
+            .vertical-timeline-item {
+                margin-bottom:30px;
+            }
+            .section-title {
+                font-size: 20px
+            }
+            .mega-dropdown .dropdown-menu {
+                overflow: auto;
+                height: 300px;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+            }
+
+            .section-logo-animation {
+                padding: 0px 0 !important;
+                min-height: fit-content;
+            }
+
+            .logo-footer {
+                display: flex !important;
+                justify-content: center !important;
+                align-content: center !important;
+                align-items: center !important;
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+            }
+
+            .footer-logo {
+                font-size: 28px;
+            }
+
+            .t
+            .footer-logo {
+                text-align: left;
+            }
+
+            .footer-title {
+                text-align: left;
+            }
+
+            .footer-links {
+                float: left;
+            }
+
+                .footer-links li {
+                    text-align: left;
+                }
+
+            .block-title {
+                font-size: 25px;
+            }
+
+            .block-content p {
+                font-size: 15px;
+                text-align: justify;
+            }
+
+            .vision-list li, .mission-list li {
+                font-size: 15px;
+            }
+
+            .image-frame {
+                height: 40vh;
+                overflow: hidden;
+                z-index: 1;
+            }
+            .social-register,.social-login {
+                gap:20px !important;
+                display: flex;
+                flex-direction: row !important;
+            }
+            button.btn-social span {
+                display: none;
+            }
+            .login-form-container {
+                padding: 40px 30px;
+            }
+            .login-header h1 {
+                font-size: 2rem;
+                text-align: center;
+                font-weight: 900;
+                color: var(--gold);
+            }
+
+            .login-header p {
+                font-size: 15px;
+                text-align: center;
+            }
+
+            .branding-content h2 {
+                font-size: 2rem;
+            }
+            .lawyer-register-main {
+                padding: 30px 0;
+            }
+
+            .registration-container {
+                padding: 30px 20px;
+            }
+
+            .registration-header {
+                margin-bottom: 35px;
+                padding-bottom: 20px;
+            }
+
+                .registration-header h1 {
+                    font-size: 1.8rem;
+                }
+
+                .registration-header p {
+                    font-size: 1rem;
+                }
+
+            .form-section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+
+
+@media (max-width: 576px) {
+    .login-main {
+        padding: 20px 10px;
+    }
+
+    .login-container {
+        border-radius: 20px;
+    }
+
+    .login-form-container {
+        padding: 30px 20px;
+    }
+
+    .login-header h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        font-weight: 900;
+        color: var(--gold);
+    }
+
+    .login-header p {
+        font-size: 15px;
+        text-align: center;
+    }
+    .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    .lawyer-register-main {
+        padding: 20px 10px;
+    }
+
+    .registration-container {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    .registration-header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .registration-header p {
+        font-size: 0.95rem;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .upload-area {
+        padding: 35px 20px;
+    }
+
+    .btn-submit {
+        padding: 15px 30px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    .icon-app img {
+        width: 29%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        animation: sway 1s infinite;
+    }
+}

@@ -1,0 +1,10 @@
+﻿@model List<Cms.ModelsView.Legal.Models.AreaViewModels>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <option selected>@ViewBag.Title_Select.</option>
+    foreach(var item in Model)
+    {
+        <option value="@item.name" selector="@item.id">@item.name</option>
+    }
+}

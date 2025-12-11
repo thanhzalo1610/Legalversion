@@ -1,0 +1,531 @@
+/* ===== OVERVIEW MAIN ===== */
+.overview-main {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: calc(100vh - 80px);
+}
+
+/* ===== SECTION 1: HERO ===== */
+.overview-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--gold);
+}
+
+.hero-animation {
+    position: relative;
+    padding: 60px 30px;
+}
+
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(30, 30, 30, 0.9) 100%);
+    animation: bgPulse 8s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    color: var(--gold);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin: 0 0 20px 0;
+    font-style: italic;
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.breadcrumb-nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--gold);
+}
+
+.breadcrumb-nav .separator {
+    color: var(--gold);
+}
+
+.breadcrumb-nav .current {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* ===== SECTION 2: CONTENT ===== */
+.overview-content {
+    padding: 40px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ===== CHART CONTAINER ===== */
+.chart-container {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== RESULTS SUMMARY ===== */
+.results-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    justify-content: center;
+}
+
+.result-item {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.result-item.plaintiff {
+    border-color: #d4af37;
+}
+
+.result-item.reconcile {
+    border-color: #0000ff;
+}
+
+.result-item.defendant {
+    border-color: #ff0000;
+}
+
+.result-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.result-item.plaintiff .result-icon {
+    color: #d4af37;
+}
+
+.result-item.reconcile .result-icon {
+    color: #0000ff;
+}
+
+.result-item.defendant .result-icon {
+    color: #ff0000;
+}
+
+.result-content h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.result-content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ===== ANALYSIS TABLES ===== */
+.analysis-table {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+}
+
+.table-title {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.custom-table {
+    width: 100%;
+    color: var(--white);
+}
+
+.custom-table thead th {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    padding: 12px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--gold);
+}
+
+.custom-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.custom-table tbody tr:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.badge-strong,
+.badge-medium,
+.badge-weak {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.badge-strong {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.badge-medium {
+    background: rgba(255, 170, 0, 0.2);
+    border: 1px solid #ffaa00;
+    color: #ffaa00;
+}
+
+.badge-weak {
+    background: rgba(255, 68, 68, 0.2);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+}
+
+/* ===== PROPOSALS SECTION ===== */
+.proposals-section,
+.damage-section {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.proposals-list,
+.damage-list {
+    color: var(--white);
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 25px;
+}
+
+.proposals-list li,
+.damage-list li {
+    margin-bottom: 12px;
+}
+
+/* ===== LEGAL FACTORS TABLE ===== */
+.legal-factors-section {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.factors-table {
+    width: 100%;
+    color: var(--white);
+    border-collapse: collapse;
+}
+
+.factors-table thead th {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    padding: 15px;
+    font-weight: 700;
+    border: 1px solid var(--gold);
+    text-align: left;
+}
+
+.factors-table tbody td {
+    padding: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.factors-table tbody tr:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* ===== CASES LIST ===== */
+.cases-list-section,
+.prediction-section {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+}
+
+.cases-table {
+    width: 100%;
+    color: var(--white);
+}
+
+.cases-table thead th {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    padding: 12px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--gold);
+}
+
+.cases-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.cases-table tbody tr:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.match-high,
+.match-medium {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.match-high {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.match-medium {
+    background: rgba(255, 170, 0, 0.2);
+    border: 1px solid #ffaa00;
+    color: #ffaa00;
+}
+
+/* ===== PREDICTION CARD ===== */
+.prediction-card {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.prediction-header {
+    color: var(--white);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.prediction-header p {
+    margin: 5px 0;
+}
+
+.prediction-match {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.prediction-match h4 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.match-percentage {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #00ff00;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.prediction-factors {
+    margin-bottom: 20px;
+}
+
+.prediction-factors h4 {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.prediction-factors ul {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+.prediction-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-case-details,
+.btn-compare {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-case-details {
+    background: linear-gradient(135deg, var(--gold) 0%, #f4d03f 100%);
+    color: var(--black);
+}
+
+.btn-case-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+}
+
+.btn-compare {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-compare:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes bgPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 50px rgba(212, 175, 55, 1);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .chart-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .result-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .prediction-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .overview-content {
+        padding: 30px 15px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .chart-container,
+    .analysis-table,
+    .proposals-section,
+    .damage-section,
+    .legal-factors-section,
+    .cases-list-section,
+    .prediction-section {
+        padding: 20px 15px;
+    }
+}

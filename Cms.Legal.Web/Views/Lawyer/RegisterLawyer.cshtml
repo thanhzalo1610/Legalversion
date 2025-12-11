@@ -1,0 +1,183 @@
+﻿
+@{
+    ViewData["Title"] = "RegisterLawyer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="lawyer-register-main">
+    <div class="container">
+        <div class="registration-container">
+            <!-- Header -->
+            <div class="registration-header">
+                <h1>LAWYER REGISTRATION APPLICATION</h1>
+                <p>Please complete the form below to apply as a lawyer on our platform. Your application will be reviewed by our team.</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="lawyerRegisterForm" onsubmit="handleLawyerRegister(event)">
+                <!-- Section 1: Personal Information -->
+                <div class="form-section">
+                    <h2 class="section-title">1. Personal Information</h2>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>FULL NAME</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Justin Mason" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>EMAIL ADDRESS</label>
+                                <input type="email" class="form-control" id="email" placeholder="justin.mason@example.com" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Professional Profile -->
+                <div class="form-section">
+                    <h2 class="section-title">2. Professional Profile</h2>
+                    <div class="form-group">
+                        <label>SHORT BIO</label>
+                        <textarea class="form-control" id="shortBio" rows="5" placeholder="Introduce yourself to clients..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 3: Bar Admissions -->
+                <div class="form-section">
+                    <h2 class="section-title">3. Bar Admissions</h2>
+                    <div id="barAdmissionsList">
+                        <div class="bar-admission-item">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>BAR ASSOCIATION</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select your bar...</option>
+                                            <option value="vietnam">Vietnam Bar Federation</option>
+                                            <option value="hanoi">Hanoi Bar Association</option>
+                                            <option value="hcm">Ho Chi Minh City Bar Association</option>
+                                            <option value="danang">Da Nang Bar Association</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>LICENSE NUMBER</label>
+                                        <input type="text" class="form-control" placeholder="" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>ADMISSION DATE</label>
+                                <input type="date" class="form-control" placeholder="mm/dd/yyyy" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-more" onclick="addBarAdmission()">
+                        <span>+</span> Add More Bar Admission
+                    </button>
+                </div>
+
+                <!-- Section 4: Education -->
+                <div class="form-section">
+                    <h2 class="section-title">4. Education</h2>
+                    <div id="educationList">
+                        <div class="education-item">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>INSTITUTION</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>DEGREE</label>
+                                        <input type="text" class="form-control" placeholder="e.g., Juris Doctor (J.D.)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>GRADUATION YEAR</label>
+                                <input type="text" class="form-control" placeholder="e.g., 2010">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-more" onclick="addEducation()">
+                        <span>+</span> Add More Education
+                    </button>
+                </div>
+
+                <!-- Section 5: Practice Areas -->
+                <div class="form-section">
+                    <h2 class="section-title">5. Practice Areas</h2>
+                    <div id="practiceAreasList">
+                        <div class="practice-area-item">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>PRACTICE AREA</label>
+                                        <select class="form-control">
+                                            <option value="">Select your expertise...</option>
+                                            <option value="corporate">Corporate Law</option>
+                                            <option value="criminal">Criminal Law</option>
+                                            <option value="civil">Civil Law</option>
+                                            <option value="family">Family Law</option>
+                                            <option value="labor">Labor Law</option>
+                                            <option value="realestate">Real Estate Law</option>
+                                            <option value="intellectual">Intellectual Property</option>
+                                            <option value="tax">Tax Law</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>YEARS OF EXPERIENCE</label>
+                                        <input type="number" class="form-control" placeholder="e.g., 5" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-more" onclick="addPracticeArea()">
+                        <span>+</span> Add More Practice Area
+                    </button>
+                </div>
+
+                <!-- Section 6: Upload Credentials -->
+                <div class="form-section">
+                    <h2 class="section-title">6. Upload Credentials (Required)</h2>
+                    <p class="section-description">Upload copies of your Bar Admission card and Law Degree. (PDF, JPG, or PNG)</p>
+                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('credentialsUpload').click()">
+                        <input type="file" id="credentialsUpload" multiple accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleFileUpload(event)">
+                        <div class="upload-icon">
+                            <svg width="60" height="60" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+                            </svg>
+                        </div>
+                        <p class="upload-text">Click or drag files here to upload</p>
+                        <p class="upload-limit">Maximum 5MB per file.</p>
+                    </div>
+                    <div id="uploadedFilesList" class="uploaded-files-list"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        Submit Application
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+<script src="~/templates/statics/js/lawyer-register.js"></script>
+
+}

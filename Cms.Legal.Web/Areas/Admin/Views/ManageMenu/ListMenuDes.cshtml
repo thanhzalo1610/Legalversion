@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "ListMenuDes";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string id = ViewData["id"] as string;
+}
+
+<div class="row">
+    <vc:menu view_name="MenuDes" id="@id"></vc:menu>
+</div>

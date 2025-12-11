@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewData["Title"] = "Case Contract Analysis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="banner-logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center align-content-center">
+                    <a href="/">
+                        <img src="~/templates/statics/images/logo/logo_200x200.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="appraisal-main">
+    <div class="container">
+            <!-- Section 2: Tabs -->
+            <div class="appraisal-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="upload" onclick="switchTab('upload')">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+                        </svg>
+                        <span>Upload File</span>
+                    </button>
+                    <button class="tab-btn" data-tab="text" onclick="switchTab('text')">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5 3a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H5zm2.5 4v3h1V7h-1z" />
+                            <path d="M3.5 6A.5.5 0 0 1 4 6.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z" />
+                        </svg>
+                        <span>Voice & Text</span>
+                    </button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Tab 1: Upload File -->
+                    <div class="tab-panel active" id="uploadTab">
+                        <div class="row gap-5">
+                            <div class="col-12">
+                                <div class="upload-section">
+                                    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.txt" style="display:none" onchange="handleFileUpload(event)">
+                                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileUpload').click()">
+                                        <div class="upload-icon">📄</div>
+                                    <h3>Drag and drop files or click to select</h3>
+                                    <p>Support: PDF, DOC, DOCX, TXT (Max 10MB)</p>
+                                    </div>
+                                    <div class="file-info" id="fileInfo" style="display:none">
+                                        <div class="file-preview">
+                                            <div class="file-icon-large">📄</div>
+                                            <div class="file-details">
+                                                <h4 id="uploadedFileName"></h4>
+                                                <p id="uploadedFileSize"></p>
+                                            </div>
+                                            <button class="btn-remove" onclick="removeUploadedFile()">×</button>
+                                        </div>
+                                    </div>
+                                    <div class="extracted-text" id="extractedText" style="display:none">
+                                    <h4>Extracted content:</h4>
+                                        <div class="text-content" id="textContent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="analysis-section">
+                                    <div class="analysis-result" id="uploadAnalysisResult" style="display:none"></div>
+                                    <button class="btn-analyze" id="analyzeUploadBtn" onclick="analyzeUploadedFile()" disabled>
+                                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                        </svg>
+                                        AI Analysis
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Voice & Text -->
+                    <div class="tab-panel" id="textTab">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="input-section">
+                                    <div class="text-input-wrapper">
+                                        <textarea id="textInput" placeholder="Nhập văn bản cần thẩm định hoặc sử dụng voice..." rows="10"></textarea>
+                                        <button class="btn-voice-inline" id="voiceInputBtn" onclick="toggleVoiceInput()" title="Ghi âm giọng nói">
+                                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                                                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="voice-indicator" id="voiceIndicator" style="display:none">
+                                        <div class="recording-status">
+                                            <div class="wave"></div>
+                                            <div class="wave"></div>
+                                            <div class="wave"></div>
+                                        <span id="voiceStatus">Recording in progress...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="analysis-section">
+                                    <div class="analysis-result" id="textAnalysisResult" style="display:none"></div>
+                                    <button class="btn-analyze" id="analyzeTextBtn" onclick="analyzeText()">
+                                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                        </svg>
+                                        AI Analysis
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+@section css{
+    <link href="~/templates/statics/css/appraisal.css" rel="stylesheet" />
+}
+@section scripts {
+    <script src="~/templates/statics/js/mammoth.browser.min.js"></script>
+    <script src="~/templates/statics/js/pdf.min.js"></script>
+    <script src="~/templates/statics/js/pdf.worker.min.js"></script>
+    <script src="~/templates/statics/js/appraisal.js"></script>
+    <script>
+                $('#pdfUpload').on('change', function(e) {
+            const file = e.target.files[0];
+            const ext = file.name.split('.').pop().toLowerCase();
+
+            if (ext === 'txt') {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    $('#aiOutput').text(evt.target.result);
+                    $('#text').val(evt.target.result);
+                };
+                reader.readAsText(file);
+            } 
+            else 
+            {
+                if (ext === 'docx') {
+                    const reader = new FileReader();
+                    reader.onload = function(evt) {
+                        mammoth.extractRawText({
+                                arrayBuffer: evt.target.result
+                            })
+                            .then(function(result) {
+                                $('#aiOutput').text(result.value);
+                                $('#text').val(result.value);
+                            });
+                    };
+                    reader.readAsArrayBuffer(file);
+                } 
+                else
+                {
+                    const reader = new FileReader();
+                    reader.onload = function(evt) {
+                        const pdfData = new Uint8Array(evt.target.result);
+                        pdfjsLib.getDocument(pdfData).promise.then(function(pdf) {
+                            let textContent = '';
+                            let pages = [];
+                            for (let i = 1; i <= pdf.numPages; i++) {
+                                pages.push(pdf.getPage(i).then(page => page.getTextContent()
+                                    .then(tc => tc.items.map(item => item.str).join(' '))
+                                    .then(text => {
+                                        textContent += text + "\n";
+                                    })));
+                            }
+                            Promise.all(pages).then(() => {
+                                $('#aiOutput').text(textContent);
+                                $('#text').val(textContent);
+                            });
+                        });
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+            }
+        });
+    </script>
+}

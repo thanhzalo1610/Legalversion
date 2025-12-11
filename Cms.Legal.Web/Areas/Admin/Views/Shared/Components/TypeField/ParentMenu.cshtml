@@ -1,0 +1,10 @@
+﻿@model List<Cms.DataNpg.Legal.EF.MenuDe>
+
+    <option value="">Select Main Menu.</option>
+@if (Model != null && Model.Count() > 0)
+{
+    foreach(var item in Model)
+    {
+        <option value="@item.Code">@item.Title</option>
+    }
+}

@@ -1,0 +1,916 @@
+﻿@{
+    ViewData["Title"] = "Legal Integrity Analytics";
+}
+<section class="banner-logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center align-content-center">
+                    <a href="/">
+                    <img src="~/templates/statics/images/logo/logo_200x200.png"/>    
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section 1: About & Search -->
+<section class="section-about-search py-5" id="home">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <!-- Left: About Us -->
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h1 class="display-5 fw-bold mb-4">
+                        <span class="gold-text">LEGAL INTEGRITY ANALYTICS</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Legal Integrity AI was founded on the conviction that justice must never be determined by power, money, or influence.
+
+                        We recognized that the core problem in the legal system is not the law itself, but the vast gap between the law and its actual practice, often leading to the manipulation and crushing of ordinary people. We believe that when transparency disappears, fairness collapses, and justice cannot survive.
+
+                        Legal Integrity AI was established as a responsibility—a commitment to restore trust in the justice system using technology that is incorruptible, unbiased, and immune to intimidation.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="feature-icon"><img src="~/templates/statics/images/icon/legal1.png" /></span>
+                            <div>
+                                <h5>Absolute Precision</h5>
+                                <p>AI analyzes millions of legal documents with high accuracy.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon"><img src="~/templates/statics/images/icon/legal2.png" /></span>
+                            <div>
+                                <h5>AI Technology That Solves Every Challenge</h5>
+                                <p>Empowering you with smart, efficient, and adaptable AI solutions for any problem.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon"><img src="~/templates/statics/images/icon/legal3.png" /></span>
+                            <div>
+                                <h5>Premier Trust & Unmatched Quality</h5>
+                                <p>Delivering leading-edge legal intelligence built on integrity, accuracy, and unwavering trust.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-download-section mt-4">
+                        
+                        <div class="app-name">
+                            <h3>Mobile App Experience</h3>
+                            <div class="icon-app">
+                                <img src="/templates/statics/images/icon/iconapp.png" />
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex gap-3 flex-wrap flex-row justify-content-center">
+                            <a href="https://apps.apple.com/app/legal-ai" target="_blank" class="app-download-btn">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z" />
+                                </svg>
+                                <div class="app-btn-text">
+                                    <small>Download on the</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.legalai" target="_blank" class="app-download-btn">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295zM1 13.396V2.603L6.846 8 1 13.396zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27z" />
+                                </svg>
+                                <div class="app-btn-text">
+                                    <small>GET IT ON</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Search Form -->
+            <div class="col-lg-6">
+                <div class="search-form-container">
+                    <h3 class="text-center mb-4">Find The Right Lawyer</h3>
+                    <form method="post" asp-controller="Lawyer" asp-action="FindLawyer" id="lawyerSearchForm">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Area.</label>
+                                    <select class="form-select" name="area" id="area" data-view="country">
+                                        <vc:select-layout viewname="Default" data="" ></vc:select-layout>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Country.</label>
+                                    <select class="form-select" disabled name="country" id="country" data-view="state">
+                                        <option value=""selected>Select Coutries.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">State/Province.</label>
+                                    <select class="form-select" disabled name="state" id="state" data-view="city">
+                                        <option selected value="">Select State/Provinces</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">City.</label>
+                                    <select class="form-select" disabled name="city" id="city">
+                                        <option selected value="">Select Cities</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Category Law.</label>
+                                    <select class="form-select" name="category_law" id="category_law" data-view="type_law">
+                                        <vc:select-layout viewname="CategoryLaw" data="Nan"></vc:select-layout>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Type Law</label>
+                                    <select class="form-select" disabled name="type_law" id="type_law">
+                                      <option value="" selected>Select Type Law</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Detailed Description.</label>
+                                    <textarea class="form-control" name="context" id="context"  rows="4" placeholder="Describe your legal problem..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                            Find Lawyer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Category Legal AI -->
+<section class="section-categories py-5" id="about">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title"><span class="ai-text">Service AI</span> Legal Integrity Analytics</h2>
+            <p class="section-subtitle">AI Will Do Legal Best - Accurate, Fast, Reliable</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/aianalysis_60x60.png" /></div>
+                    </div>
+                    <h4>AI Contract Analysis</h4>
+                    <p>Automated contract risk analysis and assessment with high accuracy, saving 90% of time.</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/analysisdocument_60x60.png" /></div>
+                    </div>
+                    <h4>Automatic Law Updates</h4>
+                    <p>Search and analyze millions of legal documents in seconds with AI. Update the latest laws from international documents.</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/legal1.png" /></div>
+                    </div>
+                    <h4>Predicting the Outcome of the Case</h4>
+                    <p>Analyze historical data to predict case outcomes with astonishing accuracy</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/suportai_60x60.png" /></div>
+                    </div>
+                    <h4>24/7 Legal Advice</h4>
+                    <p>Smart legal AI chatbot, ready to advise anytime, anywhere.</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/chartai_60x60.png" /></div>
+                    </div>
+                    <h4>Smart Profile Management</h4>
+                    <p>Organize and manage legal documents automatically with advanced AI technology.</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <div class="icon-placeholder"><img src="~/templates/statics/images/icon/sercurity_60x60.png" /></div>
+                    </div>
+                    <h4>Compliance, Risk & Security</h4>
+                    <p>Monitor legal compliance and automatically alert businesses and individuals to risks. Secure information to ensure safety.</p>
+                    <a href="/blog" class="category-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-timeline-vertical position-relative py-5">
+    <div class="container">
+        <div class="vertical-timeline-header text-center mb-5">
+            <span class="vertical-timeline-badge">Timeline</span>
+            <h2 class="vertical-timeline-title">The Origins</h2>
+            <p class="vertical-timeline-subtitle">Join us as we unveil the story of the birth of Legal Integrity Analytic (LIA). Explore the complex challenges in the legal field that led to the need for a tool like LIA, its development process, and the vision of its founders to bring unprecedented transparency and accountability.</p>
+        </div>
+
+        <div class="vertical-timeline-container">
+            <!-- Vertical Progress Line -->
+            <div class="vertical-progress-line"></div>
+            <div class="vertical-progress-fill"></div>
+            <div class="vertical-progress-glow"></div>
+
+            <!-- Timeline Item 1: The Darkness -->
+            <div class="vertical-timeline-item left">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-vertical-marker">
+                        <div class="marker-seal">
+                        </div>
+                    </div>
+                    <div class="timeline-content-box darkness-theme">
+                        <div class="content-header">
+                            <h3 class="content-title">In 2017</h3>
+                        </div>
+                        <div class="content-body">
+                            <p class="content-text">
+                                Inside a Florida courtroom, I witnessed how justice can collapse when truth is manipulated.
+                            </p>
+                            <button class="btn-read-more" data-modal="1">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2: The Struggle -->
+            <div class="vertical-timeline-item right">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-vertical-marker">
+                        <div class="marker-seal">
+                        </div>
+                    </div>
+                    <div class="timeline-content-box struggle-theme">
+                        <div class="content-header">
+                            <h3 class="content-title">The Journey To Find Justice.</h3>
+                        </div>
+                        <div class="content-body">
+                            <p class="content-text">
+                                For years, I experienced how truth can be distorted, how procedures can be weaponized, and how ordinary people can be crushed not by facts — but by manipulation, complexity, and unequal resources.
+                            </p>
+                            <button class="btn-read-more" data-modal="2">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3: The Discovery -->
+            <div class="vertical-timeline-item left">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-vertical-marker">
+                        <div class="marker-seal">
+                        </div>
+                    </div>
+                    <div class="timeline-content-box discovery-theme">
+                        <div class="content-header">
+                            <h3 class="content-title">Discover The Power Of AI</h3>
+                        </div>
+                        <div class="content-body">
+                            <div class="content-powers">
+                                <div class="power-item"><img src="/templates/statics/images/icon/icon150.png" /> Accurate</div>
+                                <div class="power-item"><img src="/templates/statics/images/icon/danchu40.png" /> Democratic</div>
+                                <div class="power-item"><img src="/templates/statics/images/icon/minhbach40.png" /> Transparent</div>
+                                <div class="power-item"><img src="/templates/statics/images/icon/success40.png" /> Consistent</div>
+                            </div>
+                            <button class="btn-read-more" data-modal="3">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4: The Birth -->
+            <div class="vertical-timeline-item right">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-vertical-marker">
+                        <div class="marker-seal">
+                        </div>
+                    </div>
+                    <div class="timeline-content-box birth-theme">
+                        <div class="content-header">
+                            <h3 class="content-title">The Idea Of ​​Legal Artificial Intelligence.</h3>
+                        </div>
+                        <div class="content-body">
+                            <p class="content-text">
+                                By providing clarity where confusion exists,
+                                consistency where subjectivity dominates,
+                                and protection where abuse and manipulation thrive.
+                            </p>
+                            <button class="btn-read-more" data-modal="4">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 5: The Future -->
+            <div class="vertical-timeline-item left">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-vertical-marker">
+                        <div class="marker-seal golden">
+                        </div>
+                    </div>
+                    <div class="timeline-content-box future-theme">
+                        <div class="content-header">
+                            <h3 class="content-title">The Legal Tools Of The Future</h3>
+                        </div>
+                        <div class="content-body">
+                            <p class="content-text">
+                                &#x2714 Legal Integrity AI stands for a simple belief.<br />
+                                &#x2714 Every case deserves transparency.<br />
+                                &#x2714 Every person deserves truth.<br />
+                                &#x2714 Every justice system deserves integrity.<br />
+                            </p>
+                            <button class="btn-read-more" data-modal="5">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End Marker -->
+            <div class="timeline-end-marker">
+            </div>
+        </div>
+    </div>
+    <div class="image-connect position-absolute">
+        <img src="/templates/statics/images/logo/logo_100x100.png" class="img-responsive" />
+    </div>
+</section>
+
+<section class="section-founder py-5">
+    <div class="container">
+        <div class="founder-container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="founder-image-wrapper">
+                        <div class="founder-image-placeholder">
+                           <img src="~/templates/statics/images/personal/founder1.png" />
+                        </div>
+                        <div class="founder-badge">
+                            <span class="badge-text">Founder & CEO</span>
+                        </div>
+                    </div>
+                    <div class="founder-message">
+                        <p class="founder-quote">
+                            "Justice should never depend on who has more power, money, or influence.
+                            Yet the world I witnessed proved the opposite."
+                        </p>
+                        <p>
+                            Over the years, I have seen how the truth can be distorted,
+                            how procedures can be weaponized, and how ordinary people
+                            can be crushed - not by the truth, but by manipulation,
+                            complexity, and unfair resources.
+                            <br />
+                            I realized that the problem is not the law itself,
+                            but the gap between the law and its practical application.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="founder-content">
+                        <div class="founder-header mb-4">
+                            <span class="founder-label">Message From the Founder</span>
+                            <h2 class="founder-title">Justice Should Not Depend on Power</h2>
+                        </div>
+                        <div class="founder-message">
+                            <div class="founder-principles">
+                                <div class="principle-item">
+                                    <div class="principle-icon"><img src="~/templates/statics/images/icon/aiserach_60x60.png" /></div>
+                                    <div class="principle-text">
+                                        <strong>When transparency disappears.</strong>
+                                        <span>Justice collapses.</span>
+                                    </div>
+                                </div>
+                                <div class="principle-item">
+                                    <div class="principle-icon"><img src="~/templates/statics/images/icon/legal2.png" /></div>
+                                    <div class="principle-text">
+                                        <strong>When Justice Collapses.</strong>
+                                        <span>Justice cannot exist.</span>
+                                    </div>
+                                </div>
+                                <div class="principle-item">
+                                    <div class="principle-icon"><img src="~/templates/statics/images/icon/suportai_60x60.png" /></div>
+                                    <div class="principle-text">
+                                        <strong>Legal Integrity AI</strong>
+                                        <span>Not as a product, but as a responsibility.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="founder-mission">
+                                Our platform does not replace lawyers, judges, or courts.
+                                It <strong>strengthens</strong> them – by providing clarity where there is confusion, consistency where subjectivity prevails, and protection where abuse and manipulation exist.
+                            </p>
+                            <div class="founder-belief">
+                                <h4>We Believe That:</h4>
+                                <ul class="belief-list">
+                                    <li>Everyone deserves the truth.</li>
+                                    <li>Every case deserves transparency.</li>
+                                    <li>Every justice system deserves integrity.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       
+    
+</section>
+
+<!-- Section 3: Partners Carousel
+<section class="section-partners py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Đối Tác Tin Cậy</h2>
+            <p class="section-subtitle">Được tin dùng bởi các tổ chức hàng đầu</p>
+        </div>
+        <div id="partnersCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 1</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 2</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 3</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 4</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 6</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 7</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 8</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 9</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="partner-logo">
+                                <div class="logo-placeholder">PARTNER 10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#partnersCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#partnersCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section> -->
+<div class="modal fade" id="developmentModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content dev-modal">
+            <div class="modal-body">
+                <div class="dev-modal-content">
+                    <div class="dev-icon">
+                       <img src="/templates/statics/images/logo/logo_light_80x80.png" />
+                    </div>
+                    <h2 class="dev-title">Platform Development in Progress</h2>
+                    <div class="dev-description">
+                        <p>We are building a <strong>next-generation system</strong> designed to deliver <span class="highlight">accuracy</span>, <span class="highlight">transparency</span>, and <span class="highlight">intelligent legal support</span>.</p>
+                        <p>Our engineering and AI teams are actively constructing the core infrastructure.</p>
+                    </div>
+                    <div class="dev-features">
+                        <div class="feature-badge">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg>
+                            AI-Powered Legal Analysis
+                        </div>
+                        <div class="feature-badge">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg>
+                            Enterprise-Grade Security
+                        </div>
+                        <div class="feature-badge">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg>
+                            Global Compliance Standards
+                        </div>
+                    </div>
+                    <div class="dev-footer">
+                        <p class="thank-you">Thank you for your patience — <strong>exciting updates and new capabilities are coming soon.</strong></p>
+                        <div class="progress-indicator">
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Platform Launch: Q2 2025</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close-dev" data-bs-dismiss="modal">
+                        Continue Exploring
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Chapter Modals -->
+<!-- Modal 1: The Past -->
+<div class="chapter-modal modal-chapter-1" id="modal-1">
+    <div class="modal-overlay"></div>
+    <div class="modal-container vintage-style">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">In 2017</h2>
+            </div>
+            <div class="modal-body vintage-paper">
+                <div class="story-section">
+                    <div class="old-photo-frame">
+                        <div class="photo-placeholder">
+                            <img src="/templates/statics/images/icon/court2.png" />
+                        </div>
+                    </div>
+                    <p class="story-text typewriter-effect">
+                        For years, I experienced how truth can be distorted, how procedures can be weaponized, and how ordinary people can be crushed not by facts - but by manipulation, complexity, and unequal resources.
+                        It became clear to me that the problem was not the law itself,
+                        but the gap between the law and its actual practice.
+                    </p>
+                    <div class="old-quote">
+                        <p>"That's when I realized: It became clear to me that the problem was not the law itself, but the gap between the law and its actual practice."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2: The Struggle -->
+<div class="chapter-modal modal-chapter-2" id="modal-2">
+    <div class="modal-overlay"></div>
+    <div class="modal-container transition-style">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">The Journey To Find Justice.</h2>
+            </div>
+            <div class="modal-body struggle-theme">
+                <div class="journey-path">
+                    <div class="path-step">
+                        <div class="step-icon"><img src="/templates/statics/images/icon/ngc.png" alt="" /></div>
+                        <h4>Study</h4>
+                        <p>Analyzing hundreds of legal systems around the world.</p>
+                    </div>
+                    <div class="path-connector">→</div>
+                    <div class="path-step">
+                        <div class="step-icon"><img src="/templates/statics/images/icon/langnghe.png" alt="" /></div>
+                        <h4>Listen</h4>
+                        <p>Interviews with lawyers, judges, and victims.</p>
+                    </div>
+                    <div class="path-connector">→</div>
+                    <div class="path-step">
+                        <div class="step-icon"><img src="/templates/statics/images/icon/sng.png" alt="" /></div>
+                        <h4>Reflection</h4>
+                        <p>Seeking real solutions</p>
+                    </div>
+                </div>
+                <div class="problem-analysis">
+                    <h3 class="fw-bold">The Core Problem</h3>
+                    <div class="problem-cards">
+                        <div class="problem-card">
+                            <div class="card-number">1</div>
+                            <h4>Transparency has disappeared.</h4>
+                            <p>Fairness has collapsed, justice cannot exist.</p>
+                        </div>
+                        <div class="problem-card">
+                            <div class="card-number">2</div>
+                            <h4>The Buried Truth</h4>
+                            <p>No resources = no voice</p>
+                        </div>
+                        <div class="problem-card">
+                            <div class="card-number">3</div>
+                            <h4>Justice Has a Price</h4>
+                            <p>Only the rich can buy justice.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="realization-moment">
+                    <p class="realization-text">
+                        "The problem isn't that the law is bad. The problem is the gap between the law on paper and the law in practice."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3: The Discovery -->
+<div class="chapter-modal modal-chapter-3" id="modal-3">
+    <div class="modal-overlay"></div>
+    <div class="modal-container modern-style">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Discover The Power Of AI</h2>
+            </div>
+            <div class="modal-body discovery-theme">
+                <div class="lightbulb-moment">
+                    <div class="bulb-animation">💡</div>
+                    <p class="eureka-text">
+                        “AI cannot be threatened, bribed, or manipulated. It analyzes based on logic, not emotions or interests.”
+                    </p>
+                </div>
+                <div class="ai-powers">
+                    <h3><span>Discover The Power</span> Of AI</h3>
+                    <div class="powers-grid">
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/icon150.png" alt="" />
+                                <h4>Integrity</h4>
+                            </div>
+
+                            <p>
+                                We uphold truth above narrative, principle above convenience,
+                                and integrity above every form of pressure or influence.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/danchu40.png" alt="" />
+                                <h4>Transparency</h4>
+                            </div>
+                            <p>
+                                We believe the legal system must be visible, verifiable, and accountable.
+                                No hidden manipulation, no concealed decisions, no unexamined assumptions.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/minhbach40.png" alt="" />
+                                <h4>Accountability</h4>
+                            </div>
+
+                            <p>
+                                Power must answer to truth — not the other way around.
+                                We build technology that exposes manipulation, highlights inconsistency,
+                                and ensures that every action can be examined and justified.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/success40.png" alt="" />
+                                <h4>Human Protection</h4>
+                            </div>
+
+                            <p>
+                                Behind every case is a family, a life, a future.
+                                We design technology that protects the innocent, supports the vulnerable,
+                                and prevents legal procedures from being used as weapons.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                         <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/success40.png" alt="" />
+                                <h4>Fair Access</h4>
+                            </div>
+
+                            <p>
+                                We believe justice should not be determined by wealth, influence, or resources.
+                                The right to understand the law — and be protected by it — belongs to everyone.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/success40.png" alt="" />
+                                <h4>Technological Integrity</h4>
+                            </div>
+
+                            <p>
+                                We build systems that are objective, consistent, and resistant to corruption,
+                                unlike human-driven procedures that can be swayed by emotion or bias.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="power-card">
+                            <div class="power-icon">
+                                <img src="/templates/statics/images/icon/success40.png" alt="" />
+                                <h4>Courage to Reform</h4>
+                            </div>
+
+                            <p>
+                                We challenge systems that are outdated, unfair, or vulnerable to abuse.
+                                We innovate not only because we can,
+                                but because the world urgently needs a new standard of justice.
+                            </p>
+                            <div class="power-meter">
+                                <div class="meter-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 4: The Birth -->
+<div class="chapter-modal modal-chapter-4" id="modal-4">
+    <div class="modal-overlay"></div>
+    <div class="modal-container tech-style">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Legal Integrity AI Ra Đời</h2>
+            </div>
+            <div class="modal-body birth-theme">
+                <div class="tech-stack">
+                    <h3 class="mt-3 mb-3 fw-bold">Core Technology</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon"> <img src="/templates/statics/images/icon/tap1.png" alt="" /></div>
+                            <span>Neural Networks</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"> <img src="/templates/statics/images/icon/tab1-2.png" alt="" /></div>
+                            <span>Data Analytics</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"> <img src="/templates/statics/images/icon/tab1-3.png" alt="" /></div>
+                            <span>Blockchain Security</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"> <img src="/templates/statics/images/icon/tab1-4.png" alt="" /></div>
+                            <span>NLP Processing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-box">
+                    <h3 class="fw-bold">OUR MISSION</h3>
+                    <p class="mission-statement-compact">
+                        providing clarity where confusion exists,
+                        consistency where subjectivity dominates,
+                        and protection where abuse and manipulation thrive.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 5: The Future -->
+<div class="chapter-modal modal-chapter-5" id="modal-5">
+    <div class="modal-overlay"></div>
+    <div class="modal-container futuristic-style">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">The Legal Tools Of The Future</h2>
+            </div>
+            <div class="modal-body future-theme">
+                <div class="vision-statement">
+                    <div class="vision-icon-large">🌟</div>
+                    <h3>OUR VISION</h3>
+                    <p class="vision-text typewriter-effect">
+                        A world where everyone, regardless of wealth or poverty, has the right to access justice fairly, transparently, and effectively.
+                    </p>
+                </div>
+                <div class="call-to-join">
+                    <h3>Join Us</h3>
+                    <p>This journey is not just ours - it's ours.</p>
+                    <div class="join-buttons">
+                        <a href="#contact" class="btn-join primary">Become a Partner</a>
+                        <a href="#about" class="btn-join secondary">Learn More</a>
+                    </div>
+
+                    <div class="app-download-section mt-4">
+
+                        <div class="app-name">
+                            <h3>Mobile App Experience</h3>
+                            <div class="icon-app">
+                                <img src="/templates/statics/images/icon/iconapp.png" />
+                            </div>
+
+                        </div>
+                        <div class="d-flex gap-3 flex-wrap flex-row justify-content-center">
+                            <a href="https://apps.apple.com/app/legal-ai" target="_blank" class="app-download-btn">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z" />
+                                </svg>
+                                <div class="app-btn-text">
+                                    <small>Download on the</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.legalai" target="_blank" class="app-download-btn">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295zM1 13.396V2.603L6.846 8 1 13.396zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27z" />
+                                </svg>
+                                <div class="app-btn-text">
+                                    <small>GET IT ON</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/templates/statics/js/timeline-interactive.js"></script>
+    <script src="~/templates/statics/js/timeline-vertical.js"></script>
+}

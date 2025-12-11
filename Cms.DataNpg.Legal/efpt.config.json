@@ -1,0 +1,189 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "LegalDbContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "IrregularWords": null,
+   "MinimumProductVersion": "2.6.1248",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "EF",
+   "PluralRules": null,
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Cms.DataNpg.Legal",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "SingularRules": null,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "public.address_user",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetRoleClaims",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetRoles",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetUserClaims",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetUserLogins",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetUserRoles",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetUsers",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.AspNetUserTokens",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.associations",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.category",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.category_lawyer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.certificates_lawyer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.chatai",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.cities",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.contentchatai",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.countries",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.educations_lawyer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.experiences_lawyer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.guestactions",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.guestsessions",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.lawyer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.lawyer_documents",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.logchatai",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.menu",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.menu_des",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.menu_role",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.mock_trial",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.practice_area_categories",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.practice_areas",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.practicipant",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.RefreshTokens",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.regions",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.report_mock_trial",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.states",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.subregions",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

@@ -1,0 +1,199 @@
+﻿@using Cms.ModelsView.Legal.Models;
+@{
+    ViewData["Title"] = "Search Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var model_data = TempData["search"] as SearchFormViewModel;
+}
+
+<section class="search-header py-4">
+    <div class="container">
+        <h1 class="search-title">Tìm Kiếm Luật Sư</h1>
+        <p class="search-subtitle">Tìm thấy <span id="totalResults">156</span> luật sư phù hợp</p>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section class="search-section py-4">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Left: Filters -->
+            <div class="col-lg-3">
+                <div class="filter-sidebar">
+                    <div class="filter-header">
+                        <h3>Bộ Lọc</h3>
+                        <button class="btn-reset" onclick="resetFilters()">Đặt lại</button>
+                    </div>
+
+                    <!-- Location Filters -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                            </svg>
+                            Vị Trí
+                        </h4>
+
+                        <!-- Region -->
+                        <div class="filter-item">
+                            <label class="filter-label">Khu Vực</label>
+                            <select class="filter-select" id="regionFilter" onchange="updateFilters()">
+                                <vc:select viewname="Default" data="" type=""></vc:select>
+                            </select>
+                        </div>
+
+                        <!-- Country -->
+                        <div class="filter-item">
+                            <label class="filter-label">Quốc Gia</label>
+                            <select class="filter-select" id="countryFilter" onchange="updateFilters()">
+                                <vc:select viewname="Default" data="" type=""></vc:select>
+                            </select>
+                        </div>
+
+                        <!-- State/Province -->
+                        <div class="filter-item">
+                            <label class="filter-label">Tỉnh/Thành</label>
+                            <select class="filter-select" id="stateFilter" onchange="updateFilters()">
+                                <vc:select viewname="Default" data="" type=""></vc:select>
+                            </select>
+                        </div>
+
+                        <!-- City/District -->
+                        <div class="filter-item">
+                            <label class="filter-label">Quận/Huyện</label>
+                            <select class="filter-select" id="cityFilter" onchange="updateFilters()">
+                                <vc:select viewname="Default" data="" type=""></vc:select>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Specialization Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                                <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
+                                <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                            </svg>
+                            Chuyên Môn
+                        </h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="corporate" onchange="updateFilters()">
+                                <span>Luật Doanh Nghiệp</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="criminal" onchange="updateFilters()">
+                                <span>Luật Hình Sự</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="civil" onchange="updateFilters()">
+                                <span>Luật Dân Sự</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="family" onchange="updateFilters()">
+                                <span>Luật Gia Đình</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="labor" onchange="updateFilters()">
+                                <span>Luật Lao Động</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="realestate" onchange="updateFilters()">
+                                <span>Luật Bất Động Sản</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Experience Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                            </svg>
+                            Kinh Nghiệm
+                        </h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="0-2" onchange="updateFilters()">
+                                <span>0-2 năm</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="3-5" onchange="updateFilters()">
+                                <span>3-5 năm</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="6-10" onchange="updateFilters()">
+                                <span>6-10 năm</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="10+" onchange="updateFilters()">
+                                <span>10+ năm</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Results -->
+            <div class="col-lg-9">
+                <!-- Sort and View Controls -->
+                <div class="results-controls">
+                    <div class="sort-controls">
+                        <label class="sort-label">Sắp xếp:</label>
+                        <select class="sort-select" id="sortSelect" onchange="sortResults()">
+                            <option value="relevant">Phù hợp nhất</option>
+                            <option value="rating">Đánh giá cao nhất</option>
+                            <option value="experience">Kinh nghiệm nhiều nhất</option>
+                            <option value="price-low">Giá thấp đến cao</option>
+                            <option value="price-high">Giá cao đến thấp</option>
+                        </select>
+                    </div>
+                    <div class="view-controls">
+                        <button class="btn-view active" data-view="list" onclick="changeView('list')">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </button>
+                        <button class="btn-view" data-view="grid" onclick="changeView('grid')">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div id="resultsContainer" class="results-container list-view">
+                    @await Component.InvokeAsync("Search");
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <nav>
+                        <ul class="pagination-list" id="paginationList">
+                            <!-- Pagination will be dynamically loaded here -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        const data = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model))
+              fetch("/query-view/search-law", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(r => r.json())
+        .then(res => renderResults(res))
+        .catch(err => {
+            document.getElementById("lawyerResults").innerHTML = "Error loading.";
+        });
+
+    </script>
+}

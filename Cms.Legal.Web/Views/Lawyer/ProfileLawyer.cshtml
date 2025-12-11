@@ -1,0 +1,311 @@
+﻿
+@{
+    ViewData["Title"] = "ProfileLawyer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="profile-main">
+    <div class="container-fluid">
+        <div class="row g-4">
+            <!-- Left Column -->
+            <div class="col-lg-4">
+                <div class="lawyer-sidebar">
+                    <!-- Lawyer Image -->
+                    <div class="lawyer-image">
+                        <div class="image-placeholder">👨‍⚖️</div>
+                    </div>
+
+                    <!-- Lawyer Basic Info -->
+                    <div class="lawyer-basic-info">
+                        <h2 class="lawyer-name">Steven J. Mandel</h2>
+                        <p class="lawyer-type">Family Law Attorney</p>
+                        <p class="lawyer-license">License: NY-12345-1980</p>
+
+                        <!-- Rating -->
+                        <div class="lawyer-rating">
+                            <div class="rating-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <div class="rating-text">5.0 / 5.0</div>
+                            <div class="rating-reviews">(156 reviews)</div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="quick-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">40+ Years</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Cases Won</div>
+                                <div class="stat-value">500+</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Success Rate</div>
+                                <div class="stat-value">95%</div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Button -->
+                        <button class="btn-contact-lawyer">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                            Contact Lawyer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-8">
+                <div class="lawyer-details">
+                    <!-- Tab Navigation -->
+                    <div class="tab-navigation">
+                        <button class="tab-btn active" data-tab="information" onclick="switchTab('information')">Information</button>
+                        <button class="tab-btn" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                        <button class="tab-btn" data-tab="fields" onclick="switchTab('fields')">Fields of Practice</button>
+                        <button class="tab-btn" data-tab="ethics" onclick="switchTab('ethics')">Ethics</button>
+                        <button class="tab-btn" data-tab="communication" onclick="switchTab('communication')">Communication</button>
+                        <button class="tab-btn" data-tab="salary" onclick="switchTab('salary')">Salary Over</button>
+                        <button class="tab-btn" data-tab="lawsuit" onclick="switchTab('lawsuit')">Lawsuit</button>
+                        <button class="tab-btn" data-tab="social" onclick="switchTab('social')">Social</button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content-wrapper">
+                        <!-- Information Tab -->
+                        <div class="tab-content active" id="information">
+                            <h3 class="content-title">Education & Certifications</h3>
+                            <div class="content-section">
+                                <p><strong>Bachelor of Arts (B.A., magna cum laude)</strong> – Adelphi University, 1976.</p>
+                                <p><strong>J.D.</strong> – Benjamin N. Cardozo School of Law, Yeshiva University, 1979.</p>
+                                <p>Mandel Law Firm</p>
+                                <p>Admitted to practice in New York in 1980 and in other federal courts such as the Southern District of New York in 1981.</p>
+                            </div>
+
+                            <h3 class="content-title">Areas of Expertise</h3>
+                            <div class="content-section">
+                                <p>He specializes in family and matrimonial law and has extensive experience in:</p>
+                                <ul>
+                                    <li>Divorce (consensus and contested)</li>
+                                    <li>Child custody, visitation, child support</li>
+                                    <li>Prenuptial, postnuptial agreements</li>
+                                    <li>Legal matters for the LGBTQ community</li>
+                                    <li>Domestic violence, orders of protection, etc.</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="content-title">Achievements & Recognition</h3>
+                            <div class="content-section">
+                                <ul>
+                                    <li>Awarded "AV Preeminent" rating by Martindale-Hubbell – highest rating for competence and ethics.</li>
+                                    <li>A 10.0 AVVO rating for "peer recognition & client satisfaction".</li>
+                                    <li>Selected as a "Super Lawyer" and "Top 100 Lawyer in the United States".</li>
+                                    <li>Invited to serve as a lecturer for the New York College of Matrimonial Trial Attorneys.</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="content-title">Location and Contact</h3>
+                            <div class="content-section">
+                                <p><strong>Headquarters:</strong> 370 Lexington Avenue, Suite 505, New York, NY 10017.</p>
+                                <p><strong>Phone:</strong> (646) 770-3868</p>
+                            </div>
+                        </div>
+
+                        <!-- Overview Tab -->
+                        <div class="tab-content" id="overview">
+                            <h3 class="content-title">Highlight Summary</h3>
+                            <div class="content-section">
+                                <p>Steven J. Mandel is a veteran attorney with over 40 years of experience in New York's cutthroat legal market. He combines trial lawyering and practical negotiation skills with a deep empathy for clients going through difficult life stages—divorce, child custody battles, and changing family structures.</p>
+                                <p>His track record extends beyond professional awards to the way he is viewed by his clients as a true partner. If you are looking for an attorney with experience, flexibility, and a strong strategic vision in the field of family law, he is one of the outstanding choices in New York.</p>
+                            </div>
+                        </div>
+
+                        <!-- Fields of Practice Tab -->
+                        <div class="tab-content" id="fields">
+                            <h3 class="content-title">Fields of Practice</h3>
+                            <div class="content-section">
+                                <div class="practice-chart">
+                                    <canvas id="practiceChart"></canvas>
+                                </div>
+                            </div>
+
+                            <h3 class="content-title">1. Divorce Law</h3>
+                            <div class="content-section">
+                                <ul>
+                                    <li><strong>Activity ratio:</strong> ~35%</li>
+                                    <li>One of New York's leading experts in complex divorces.</li>
+                                    <li>
+                                        He represents both:
+                                        <ul>
+                                            <li>Uncontested Divorce: hours</li>
+                                            <li>Contested Divorce: when the parties disagree over property, children, or alimony</li>
+                                        </ul>
+                                    </li>
+                                    <li>High-Net-Worth Divorce: dealing with assets including businesses, real estate, trusts, securities, or foreign assets.</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="content-title">2. Family Law</h3>
+                            <div class="content-section">
+                                <ul>
+                                    <li><strong>Practice Percentage:</strong> ~25%</li>
+                                    <li>Includes all legal matters related to family relationships</li>
+                                    <li>Child Custody: establishing or adjusting custody and visitation rights</li>
+                                    <li>Child/Spousal Support: negotiating or litigating to ensure equitable support</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="content-title">3. Same-Sex Marriage</h3>
+                            <div class="content-section">
+                                <ul>
+                                    <li><strong>Practice Percentage:</strong> ~15%</li>
+                                    <li>Steven J. Mandel is a pioneer in New York assisting same-sex couples in marriage, divorce, and legal division of property.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Ethics Tab -->
+                        <div class="tab-content" id="ethics">
+                            <h3 class="content-title">Ethics & Reputation</h3>
+                            <div class="content-section">
+                                <div class="ethics-chart">
+                                    <canvas id="ethicsChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>General</h4>
+                                <p>Steven J. Mandel has an excellent reputation for competence and is highly regarded by clients and colleagues for his ethics and professionalism.</p>
+                                <p>However, there is no public evidence that he has been disciplined for serious ethical issues in New York State — but that does not preclude the possibility of smaller or undisclosed issues.</p>
+                            </div>
+                        </div>
+
+                        <!-- Communication Tab -->
+                        <div class="tab-content" id="communication">
+                            <h3 class="content-title">Communication & Working Style</h3>
+                            <div class="content-section">
+                                <div class="communication-chart">
+                                    <canvas id="communicationChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Friendly, customer-centric</li>
+                                    <li>Clear, direct (no beating around the bush)</li>
+                                    <li>Committed, hands-on ("your problem is my problem")</li>
+                                    <li>A combination of seriousness – rich experience – and a humanistic approach</li>
+                                </ul>
+
+                                <h4>Working Style:</h4>
+                                <ul>
+                                    <li>A combination of cooperation and negotiation with a willingness to litigate vigorously when necessary</li>
+                                    <li>A focus on individual clients — not "case by case" but individuals</li>
+                                    <li>A clear strategy, good preparation, patience</li>
+                                    <li>A sense of companionship: clients feel "on the same team" as their lawyer</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Salary Over Tab -->
+                        <div class="tab-content" id="salary">
+                            <h3 class="content-title">Salary Over the Years</h3>
+                            <div class="content-section">
+                                <div class="salary-chart">
+                                    <canvas id="salaryChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <p>Based on experience and reputation, estimated consultation fees range from $400-$600 per hour for complex family law cases.</p>
+                            </div>
+                        </div>
+
+                        <!-- Lawsuit Tab -->
+                        <div class="tab-content" id="lawsuit">
+                            <h3 class="content-title">Lawsuit Winning Rate</h3>
+                            <div class="content-section">
+                                <div class="lawsuit-stats">
+                                    <div class="stat-box">
+                                        <div class="stat-number">95%</div>
+                                        <div class="stat-label">Success Rate</div>
+                                    </div>
+                                    <div class="stat-box">
+                                        <div class="stat-number">500+</div>
+                                        <div class="stat-label">Cases Won</div>
+                                    </div>
+                                    <div class="stat-box">
+                                        <div class="stat-number">40+</div>
+                                        <div class="stat-label">Years Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <p>With over 40 years of experience, Steven J. Mandel has maintained an impressive track record in family law cases, particularly in complex divorce proceedings and high-net-worth cases.</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Tab -->
+                        <div class="tab-content" id="social">
+                            <h3 class="content-title">Social Contribution</h3>
+                            <div class="content-section">
+                                <table class="social-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Field</th>
+                                            <th>Level (on a scale of 10)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Volunteer to support the community (e.g., National Multiple Sclerosis Society)</td>
+                                            <td><span class="level-badge level-9">9</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pro-bono legal advice and peer training</td>
+                                            <td><span class="level-badge level-8">8.5</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Participate in professional and executive organizations</td>
+                                            <td><span class="level-badge level-8">8</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Legal communication & community education</td>
+                                            <td><span class="level-badge level-7">7.5</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="content-title">Outstanding Social Contributions</h3>
+                            <div class="content-section">
+                                <ul>
+                                    <li>Mr. Mandel is recognized for his many years of volunteering and supporting the National Multiple Sclerosis Society (MS Society) — New York chapter.</li>
+                                    <li>He is also a member of the Board of Directors and "Chief Legal Counsel" for Fans for the Cure (Ed Randall's Fans for the Cure – an organization that fights to raise awareness about prostate cancer).</li>
+                                    <li>Specialized Education: He is an instructor for the New York State continuing education program for lawyers, through the New York College of Matrimonial Trial Attorneys.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+                                    @section css{
+    <link href="~/templates/statics/css/lawyer-profile.css" rel="stylesheet" />
+                                    }
+@section scripts {
+    <script src="~/templates/statics/plugin/chart.js"></script>
+    <script src="~/templates/statics/js/lawyer-profile.js"></script>
+}

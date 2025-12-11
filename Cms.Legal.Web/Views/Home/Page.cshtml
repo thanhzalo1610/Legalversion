@@ -1,0 +1,25 @@
+﻿@model Cms.Legal.Web.Models.ParamaterViewModels
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section-logo-animation py-5">
+    <div class="container">
+        <div class="logo-animation-container">
+            <div class="animated-logo">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <a href="/">
+                            <img src="~/templates/statics/images/logo/logo_200x200.png" />
+                        </a>
+                    </div>
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                    <div class="orbit orbit-3"></div>
+                </div>
+            </div>
+            <h1 class="about-title mt-5">Legal Integrity Analytics</h1>
+            <p class="about-subtitle">Pioneering in Legal AI Technology.</p>
+        </div>
+    </div>
+</section>
+<vc:page-layout slug="@Model.slug" category="@Model.category" id="@Model.id"></vc:page-layout>
